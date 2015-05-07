@@ -1,0 +1,17 @@
+<% if user_signed_in? %>	
+	<%= form_for([@feed, @feed.comments.build]) do |f| %>
+		
+		</p>
+		<p>
+		<%= f.hidden_field :feed_id %>
+		<%= f.label :Comment %>
+		<%= f.text_field :body %>
+		</p>
+		<%= f.submit %>
+
+	<% end %>
+<% else %>
+  <p>You are not Signed In, Please
+  <l><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %></li>
+  to Post your comment ! </p>
+<% end %>

@@ -1,0 +1,1714 @@
+
+
+Started GET "/" for ::1 at 2015-05-07 16:58:43 +0545
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.8ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.8ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.9ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (42.3ms)
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFeeds (20150418050256)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150418050256"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateComments (20150423061517)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commenter" varchar, "body" text, "feed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_comments_on_feed_id" ON "comments" ("feed_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150423061517"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20150424054021)
+  [1m[35m (0.0ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/newimac/Documents/Nirajan/newblog/db/migrate/20150424054021_devise_create_users.rb:37)
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar NOT NULL, "last_name" varchar NOT NULL, "username" varchar NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150424054021"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to AddUserIdToFeeds (20150424104746)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "feeds" ADD "user_id" integer
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_feeds_on_user_id" ON "feeds" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150424104746"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddAvatarToUsers (20150505093754)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "avatar" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505093754"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddUserIdToComments (20150505115247)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ADD "user_id" integer[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_feed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_feed_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505115247"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to ActsAsVotableMigration (20150506083051)
+  [1m[35m (0.0ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/newimac/Documents/Nirajan/newblog/db/migrate/20150506083051_acts_as_votable_migration.rb:12)
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "votable_id" integer, "votable_type" varchar, "voter_id" integer, "voter_type" varchar, "vote_flag" boolean, "vote_scope" varchar, "vote_weight" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes" ("voter_id", "voter_type", "vote_scope")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_voter_id_and_voter_type_and_vote_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_voter_id_and_voter_type_and_vote_scope' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes" ("votable_id", "votable_type", "vote_scope")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150506083051"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_feed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_feed_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_votable_id_and_votable_type_and_vote_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_votable_id_and_votable_type_and_vote_scope' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_voter_id_and_voter_type_and_vote_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_voter_id_and_voter_type_and_vote_scope' AND type='index'
+
+
+
+Started GET "/" for ::1 at 2015-05-07 16:59:03 +0545
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (96.9ms)
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds"
+  Rendered feeds/index.html.erb within layouts/application (102.1ms)
+Completed 200 OK in 2431ms (Views: 2395.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.self-8c0a18ef497d6248739c038ca99120e435b9d0ac33120bf065cd090558f70e73.css?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/feeds.self-acde013d84fcdda06249ceae0b878908bcf6280ff91c7db4d07f0372d80b662e.css?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/bootstrap.self-2bbd2c0465f01b1f8270958ddfc2e62a08915f295a35d22df2971eb936cf3c64.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/feeds.self-930fefbb1df13c3e0f7cde87d7640e284297bf7aa3f25fbfb17af246a670f315.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/table.self-3c4a5b356d5b21d69a281b221ab323360b5c62a6b48fa6dce87f53a1dafde5e3.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-07 16:59:06 +0545
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 16:59:08 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (2.0ms)
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  Rendered feeds/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 47ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-07 16:59:20 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEYoovF60apobl/y5yFOmyPu9Pm/XiDnCnMhbd5UXOsPwLtUf4t/dLhAh4MI4b+Yt6+Y+CI0EgsIH4ESv1IpYg==", "user"=>{"email"=>"nirazan@jpt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "nirazan@jpt.com"]]
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEYoovF60apobl/y5yFOmyPu9Pm/XiDnCnMhbd5UXOsPwLtUf4t/dLhAh4MI4b+Yt6+Y+CI0EgsIH4ESv1IpYg==", "user"=>{"email"=>"nirazan@jpt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/sessions/_form.html.erb (1.6ms)
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 112ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-07 16:59:22 +0545
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-07 16:59:41 +0545
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nNqeptVqM6bL6QitB+BQUVWJ/vFuXUO6l7AktvpGmPKTXA1QW5udeBvH0NzoIKFSwciS8PM3cVaV3ITJm0Dtew==", "user"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fb8996ec5e0 @tempfile=#<Tempfile:/var/folders/7t/vfvk02h50fxf7vwmmbfp62yr0000gn/T/RackMultipart20150507-3486-uvf0qw.png>, @original_filename="user.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"user.png\"\r\nContent-Type: image/png\r\n">, "first_name"=>"Nirajan", "last_name"=>"Pokharel", "username"=>"nirazan", "email"=>"nirazan@jpt.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'nirazan@jpt.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "username", "email", "encrypted_password", "avatar", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Nirajan"], ["last_name", "Pokharel"], ["username", "nirazan"], ["email", "nirazan@jpt.com"], ["encrypted_password", "$2a$10$kMPyzk1gpbAkg4iFbmRqe.iADeBVpm.Vyiz0XSJlWMrdN8BaZUuXm"], ["avatar", "user.png"], ["created_at", "2015-05-07 11:14:41.510787"], ["updated_at", "2015-05-07 11:14:41.510787"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-07 11:14:41.515014"], ["current_sign_in_at", "2015-05-07 11:14:41.515014"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-07 11:14:41.515743"], ["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/admin/feeds/4/edit
+Completed 302 Found in 90ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/feeds/4/edit" for ::1 at 2015-05-07 16:59:41 +0545
+
+ActionController::RoutingError (No route matches [GET] "/admin/feeds/4/edit"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.6ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.5ms)
+
+
+Started POST "/users" for ::1 at 2015-05-07 16:59:53 +0545
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nNqeptVqM6bL6QitB+BQUVWJ/vFuXUO6l7AktvpGmPKTXA1QW5udeBvH0NzoIKFSwciS8PM3cVaV3ITJm0Dtew==", "user"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fb89c2d6ed0 @tempfile=#<Tempfile:/var/folders/7t/vfvk02h50fxf7vwmmbfp62yr0000gn/T/RackMultipart20150507-3486-1yvyz19.png>, @original_filename="user.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"user.png\"\r\nContent-Type: image/png\r\n">, "first_name"=>"Nirajan", "last_name"=>"Pokharel", "username"=>"nirazan", "email"=>"nirazan@jpt.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 16:59:53 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (3.2ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  Rendered feeds/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 55ms (Views: 46.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 16:59:56 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"n9A9efbu+esbpz2Y0xEQPoJypyVJboXfJawJU6M8J7qQVq6PeB9XNcuJ5ek80eE9FjPLJNQEtzMnwKkswjpSMw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 16:59:56 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.8ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  Rendered feeds/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 50ms (Views: 42.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-07 16:59:58 +0545
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 45ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-07 17:00:16 +0545
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GHtyKKFBdzUKWgowipo1aPxkiRwEXkk2ib52HtJfkG8n5iDOh0UcYriTZ1csCf8mFA9us4q15bBfQTKYQbbiBQ==", "user"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fb8925c66e0 @tempfile=#<Tempfile:/var/folders/7t/vfvk02h50fxf7vwmmbfp62yr0000gn/T/RackMultipart20150507-3486-1peo5vn.jpeg>, @original_filename="mango.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"mango.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "first_name"=>"Mango", "last_name"=>"man", "username"=>"mango", "email"=>"mango@jpt.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mango@jpt.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "username", "email", "encrypted_password", "avatar", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Mango"], ["last_name", "man"], ["username", "mango"], ["email", "mango@jpt.com"], ["encrypted_password", "$2a$10$TEtuRn5BI2xZoC6yo4dnLOQFSVKY7IAEAErlNyWbdzNxgVqT3FRxK"], ["avatar", "mango.jpeg"], ["created_at", "2015-05-07 11:15:16.832141"], ["updated_at", "2015-05-07 11:15:16.832141"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-07 11:15:16.836796"], ["current_sign_in_at", "2015-05-07 11:15:16.836796"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-07 11:15:16.837519"], ["id", 2]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 83ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:00:16 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.2ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  Rendered feeds/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 52ms (Views: 44.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 17:00:23 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ECjxYUO+U9yL+SY3s7IwsckWkaSFLkIp6a1Muc4kh58vtaOHZbo4izkwS1AVIfr/IX12CwvF7q8/Ugg/Xc319Q=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:00:23 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.5ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  Rendered feeds/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 47ms (Views: 40.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-07 17:00:25 +0545
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 44ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-07 17:00:41 +0545
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ctG6wv/MM+Kwh+UbYfdnhzifKLSuO7bka2be26JzdPxV2KEbKqrjVUBZj4a5MoBEd1VmEnGC1RFYHQVGokkfzA==", "user"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fb89d9abc78 @tempfile=#<Tempfile:/var/folders/7t/vfvk02h50fxf7vwmmbfp62yr0000gn/T/RackMultipart20150507-3486-idl6u9.jpg>, @original_filename="Lord-Ganesh.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Lord-Ganesh.jpg\"\r\nContent-Type: image/jpeg\r\n">, "first_name"=>"Ganesh", "last_name"=>"God", "username"=>"ganesh", "email"=>"ganesh@jpt.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: password_confirmation
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ganesh@jpt.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "username", "email", "encrypted_password", "avatar", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "Ganesh"], ["last_name", "God"], ["username", "ganesh"], ["email", "ganesh@jpt.com"], ["encrypted_password", "$2a$10$WIeMXsVXucRP.samedE2Wu/.sQPSsgM5ysmu.x2OlmYCgKzXdpyyi"], ["avatar", "Lord-Ganesh.jpg"], ["created_at", "2015-05-07 11:15:41.941073"], ["updated_at", "2015-05-07 11:15:41.941073"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-07 11:15:41.948958"], ["current_sign_in_at", "2015-05-07 11:15:41.948958"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-07 11:15:41.949862"], ["id", 3]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 87ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:00:41 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  Rendered feeds/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 73ms (Views: 66.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 17:00:49 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eh5fNj6WHuYoxAIwMi65UKCiFOyy5nxObwRFOx/BdZVdF0Tv6/DOUdgaaK3q616T72haSm1fH7tcf56mH/sepQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:00:49 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.6ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  Rendered feeds/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 46ms (Views: 39.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-07 17:00:51 +0545
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/_form.html.erb (1.5ms)
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-07 17:00:58 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kH4Cn9mJInorKyfddWLn8vp3ewTuZoYYHseymC7j4UZTgn4BB8EFseA1hKma7l0OaO2FVVJ2+hsbX46mhbOYwQ==", "user"=>{"email"=>"nirazan@jpt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "nirazan@jpt.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-05-07 11:15:58.563784"], ["sign_in_count", 2], ["updated_at", "2015-05-07 11:15:58.564729"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:00:58 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  Rendered feeds/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 46ms (Views: 39.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/feeds" for ::1 at 2015-05-07 17:01:03 +0545
+Processing by FeedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2J/SAoYvOl/5c7NA6svExz8DCik5cjmp8nPQ3qgPUtskogDSjkcvnfjO/sdC6agSHt8ynMXCM8xE533prB+IDA==", "feed"=>{"text"=>"Hello !"}, "commit"=>"Create Feed"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "feeds" ("text", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["text", "Hello !"], ["user_id", 1], ["name", "Nirajan"], ["created_at", "2015-05-07 11:16:03.408521"], ["updated_at", "2015-05-07 11:16:03.408521"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 47ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:01:03 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 54ms (Views: 48.8ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/feeds/1/unlike" for ::1 at 2015-05-07 17:01:09 +0545
+Processing by FeedsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"s4tIYoE40TT1jOrfGO2DOQZgRjPoD7dojs9uuDihXcFPtpqyiVDE9vQxp1iwz+/sJ7x+hhS/vQ04W8OPPLGHFg==", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 1], ["voter_type", "User"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 1], ["voter_type", "User"], ["vote_flag", "f"], ["vote_weight", 1], ["created_at", "2015-05-07 11:16:09.298639"], ["updated_at", "2015-05-07 11:16:09.298639"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:01:09 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.2ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 88ms (Views: 83.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 17:01:11 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C2mhs6OlrlNNMCnmymtDUXD1LbX9j+x1XYOVM0Sj5uz3VHNjq827kUyNZGFiSS+EUSkVAAE/5hDrFzgEQLM8Ow=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:01:11 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.8ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 77ms (Views: 70.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-07 17:01:23 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iFirhEz77A/1dSzM+8giXSnehk9H8Ja3WnMien75WdjqML2JAdOzS1BFVSM5d9eZda2dOZkUB3uClSx8L2sc0g==", "user"=>{"email"=>"ganesh@jpt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ganesh@jpt.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2015-05-07 11:16:23.145755"], ["sign_in_count", 2], ["updated_at", "2015-05-07 11:16:23.146819"], ["id", 3]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:01:23 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 51ms (Views: 43.8ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/feeds/1/like" for ::1 at 2015-05-07 17:01:25 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"7qMFvvNBnlnbKsFpmdTVmXmiOq0NwG33/Fgc47Jhs9/ltKL+9ru6TRW/PUbys2Cg7Z2EiYIMby8V9NPOQYH2XQ==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 3], ["voter_type", "User"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 3], ["voter_type", "User"], ["vote_flag", "t"], ["vote_weight", 1], ["created_at", "2015-05-07 11:16:25.207271"], ["updated_at", "2015-05-07 11:16:25.207271"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:01:25 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 50ms (Views: 44.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:01:26 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  Rendered comments/_form.html.erb (9.0ms)
+  Rendered feeds/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 65ms (Views: 59.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/feeds/1/comments" for ::1 at 2015-05-07 17:01:33 +0545
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zadsq8X7riyqIvSWGqgCfZ14RyjDwOFjoHeHsvO3FPTGsMvrwAGKOGS3CLlxz7dECUf5DEwM47tJ20ifAFdRdg==", "comment"=>{"feed_id"=>"1", "body"=>"Hello Hello"}, "commit"=>"Create Comment", "feed_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameter: feed_id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("body", "feed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Hello Hello"], ["feed_id", 1], ["created_at", "2015-05-07 11:16:33.263042"], ["updated_at", "2015-05-07 11:16:33.263042"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "comments" SET "commenter" = ?, "user_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?  [["commenter", "Ganesh"], ["user_id", 3], ["updated_at", "2015-05-07 11:16:33.266012"], ["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds/1
+Completed 302 Found in 9ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:01:33 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered comments/_comment.html.erb (3.5ms)
+  Rendered comments/_form.html.erb (1.6ms)
+  Rendered feeds/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 57ms (Views: 51.3ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 17:01:36 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NaJraFH54QMswM/B1YLjt1kslSwZ6HgzFXYcgHlRBMQ+tcwoVAPFF+JVM+6+5VaOzRMrCJYkeuv82tOtirFBRg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:01:36 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.6ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 50ms (Views: 42.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-07 17:01:46 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UVP323V4aVXLo2UiWM1Q9hYia3os29uqMP5c9Qrerhg9jUU9g6rQ+oFS3CZ+VHtOaSe8fIZAYOM97RnxNhGMA==", "user"=>{"email"=>"mango@jpt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "mango@jpt.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-05-07 11:16:46.079554"], ["sign_in_count", 2], ["updated_at", "2015-05-07 11:16:46.080503"], ["id", 2]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 76ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:01:46 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.2ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 51ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:01:47 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered comments/_comment.html.erb (1.0ms)
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 49ms (Views: 44.6ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/feeds/1/like" for ::1 at 2015-05-07 17:01:49 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"5+ROgvojTMMUaEeREyNNDa3NE6jznQ5rDBs5q7wVXWqW6b6IHjXDpnn5WTE76rHhPhyOjPmkdOuVXt/yqr7OBg==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"], ["vote_flag", "t"], ["vote_weight", 1], ["created_at", "2015-05-07 11:16:49.077156"], ["updated_at", "2015-05-07 11:16:49.077156"]]
+  [1m[35m (547.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 558ms (ActiveRecord: 547.9ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:01:49 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 48ms (Views: 43.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:01:51 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered comments/_comment.html.erb (1.0ms)
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 51ms (Views: 45.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/feeds/1/comments" for ::1 at 2015-05-07 17:02:02 +0545
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wQywVpj+WGQcEpBYk6zhO7v6W5EJiWNJLyVCDcfmz1ewAUBcfOjXAXGDjvi7ZR3XKCvGtQOwGcm2YKRU0U1cOw==", "comment"=>{"feed_id"=>"1", "body"=>"Hello Helloo Hello"}, "commit"=>"Create Comment", "feed_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameter: feed_id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("body", "feed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Hello Helloo Hello"], ["feed_id", 1], ["created_at", "2015-05-07 11:17:02.363816"], ["updated_at", "2015-05-07 11:17:02.363816"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "comments" SET "commenter" = ?, "user_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?  [["commenter", "Mango"], ["user_id", 2], ["updated_at", "2015-05-07 11:17:02.369854"], ["id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds/1
+Completed 302 Found in 11ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:02:02 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.9ms)
+  Rendered comments/_form.html.erb (1.3ms)
+  Rendered feeds/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 50ms (Views: 45.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:05 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 92ms (Views: 86.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:02:11 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered comments/_form.html.erb (1.6ms)
+  Rendered feeds/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 56ms (Views: 51.0ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/feeds/1/unlike" for ::1 at 2015-05-07 17:02:14 +0545
+Processing by FeedsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"F5+iqsbwxpvxY+y3r8u/m/mUi1kQilkhLxgpNfAEJQ5mklKgIuZJ/pzy8heHAkN3akUWfRqzI6G2Xc9s5q+2Yg==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35mActsAsVotable::Vote Load (0.2ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  ORDER BY "votes"."id" DESC LIMIT 1  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "votes" SET "vote_flag" = ?, "updated_at" = ? WHERE "votes"."id" = ?  [["vote_flag", "f"], ["updated_at", "2015-05-07 11:17:14.305149"], ["id", 3]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:14 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.3ms)
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 53ms (Views: 48.0ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/feeds/1/like" for ::1 at 2015-05-07 17:02:15 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"n/XLPSAJJxXdKWm5AFdCVu9yXby/G1JwsqOC/QJHsVTu+Ds3xB+ocLC4dxkonr66fKPAmLUiKPAr5mSkFOwiOA==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35mActsAsVotable::Vote Load (0.1ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  ORDER BY "votes"."id" DESC LIMIT 1  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "votes" SET "vote_flag" = ?, "updated_at" = ? WHERE "votes"."id" = ?  [["vote_flag", "t"], ["updated_at", "2015-05-07 11:17:15.397371"], ["id", 3]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 12ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:15 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 55ms (Views: 49.7ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/feeds/1/unlike" for ::1 at 2015-05-07 17:02:16 +0545
+Processing by FeedsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"gmFAOou1iYp3AxZnmbdxHg9GOfwz15xsVHCDdl2POejzbLAwb6MG7xqSCMexfo3ynJek2Dnu5uzNNWUvSySqhA==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35mActsAsVotable::Vote Load (0.1ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  ORDER BY "votes"."id" DESC LIMIT 1  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "votes" SET "vote_flag" = ?, "updated_at" = ? WHERE "votes"."id" = ?  [["vote_flag", "f"], ["updated_at", "2015-05-07 11:17:16.084494"], ["id", 3]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 12ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:16 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.2ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/feeds/1/like" for ::1 at 2015-05-07 17:02:16 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"emBxZ+wt55+Yu1L2RQny1ubJQU2fYVjHY3LtnySYT5gLbYFtCDto+vUqTFZtwA46dRjcaZVYIkf6NwvGMjPc9A==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35mActsAsVotable::Vote Load (0.1ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  ORDER BY "votes"."id" DESC LIMIT 1  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "votes" SET "vote_flag" = ?, "updated_at" = ? WHERE "votes"."id" = ?  [["vote_flag", "t"], ["updated_at", "2015-05-07 11:17:16.685716"], ["id", 3]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 12ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:16 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/feeds/1/unlike" for ::1 at 2015-05-07 17:02:17 +0545
+Processing by FeedsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"jr/lCDofj0GcYn8oYGUYnosMvA0kmzbMd5aJuqriCHH/shUC3gkAJPHzYYhIrORyGN0hKS6iTEzu02/jvEmbHQ==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35mActsAsVotable::Vote Load (0.1ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  ORDER BY "votes"."id" DESC LIMIT 1  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "votes" SET "vote_flag" = ?, "updated_at" = ? WHERE "votes"."id" = ?  [["vote_flag", "f"], ["updated_at", "2015-05-07 11:17:17.400554"], ["id", 3]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 12ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:17 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 50ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/feeds/1/like" for ::1 at 2015-05-07 17:02:17 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"3LmGzINqq+ek8avrv2l+M0qvtCeSS/EIYLgzS+JsDFSttHbGZ3wkgslgtUuXoILf2X4pA5hyi4j5/dUS9MefOA==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35mActsAsVotable::Vote Load (0.1ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL  ORDER BY "votes"."id" DESC LIMIT 1  [["votable_id", 1], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "votes" SET "vote_flag" = ?, "updated_at" = ? WHERE "votes"."id" = ?  [["vote_flag", "t"], ["updated_at", "2015-05-07 11:17:18.004690"], ["id", 3]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 12ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:18 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 50ms (Views: 45.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:02:18 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (2.5ms)
+  Rendered comments/_form.html.erb (1.9ms)
+  Rendered feeds/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 54ms (Views: 49.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:20 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.6ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/feeds" for ::1 at 2015-05-07 17:02:30 +0545
+Processing by FeedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4xwbh+OtkSi7EsEQgRCGyyWHKZg1t+O5OT2FpqzVzc6SEeuNB7seTdaD37Cp2Xontla0vD+OmTmgeGP/un5eog==", "feed"=>{"text"=>"Im Mango"}, "commit"=>"Create Feed"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "feeds" ("text", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Im Mango"], ["user_id", 2], ["name", "Mango"], ["created_at", "2015-05-07 11:17:30.459155"], ["updated_at", "2015-05-07 11:17:30.459155"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 6ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:30 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/feeds/2/like" for ::1 at 2015-05-07 17:02:32 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"ZBRD4y2YYAqIRnRyO1XSyq6wPGsEya/g8Baizs0ljroVGbPpyY7vb+XXatITnC4mPWGhTw7w1WBpU0SX244d1g==", "id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["votable_id", 2], ["votable_type", "Feed"], ["voter_id", 2], ["voter_type", "User"], ["vote_flag", "t"], ["vote_weight", 1], ["created_at", "2015-05-07 11:17:32.611337"], ["updated_at", "2015-05-07 11:17:32.611337"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 11ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:32 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 73ms (Views: 67.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 17:02:34 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XCpTecoiuPrCn/EgNy3Ulz+3YT9uH0bpYncWXsmCyH8tJ6NzLjQ3n68O74Af5Ch7rGb8G2QmPGn7MvAH3ylbEw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:02:34 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.7ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 61ms (Views: 53.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-07 17:02:41 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sWpWXZ69f4dqFjXkhVtaaFabbhupWUtZePNh1NcWu19dwV9zz6ocqBwuovGi+zETfAWYmrr0L2YUaXngASUXEg==", "user"=>{"email"=>"nirazan@jpt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "nirazan@jpt.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-07 11:15:58.563784"], ["current_sign_in_at", "2015-05-07 11:17:41.311251"], ["sign_in_count", 3], ["updated_at", "2015-05-07 11:17:41.312155"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:02:41 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.2ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 58ms (Views: 50.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/2" for ::1 at 2015-05-07 17:02:43 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 2]]
+  Rendered comments/_form.html.erb (1.6ms)
+  Rendered feeds/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 53ms (Views: 48.4ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/feeds/2/like" for ::1 at 2015-05-07 17:02:44 +0545
+Processing by FeedsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"sLAaDeUZ+5Fen2G8P12GFJ0dycnfP6rh+y1zw2qrdvvxxb8MH36BxrYa8zbaltx7/fV6IImp4iuMhMygG0cLCQ==", "id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."voter_id" = ? AND "votes"."voter_type" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"], ["voter_id", 1], ["voter_type", "User"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["votable_id", 2], ["votable_type", "Feed"], ["voter_id", 1], ["voter_type", "User"], ["vote_flag", "t"], ["vote_weight", 1], ["created_at", "2015-05-07 11:17:44.386328"], ["updated_at", "2015-05-07 11:17:44.386328"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/feeds
+Completed 302 Found in 13ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:44 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 56ms (Views: 50.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/2" for ::1 at 2015-05-07 17:02:45 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 2]]
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 53ms (Views: 48.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/feeds/2/comments" for ::1 at 2015-05-07 17:02:50 +0545
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uq7042svCqUTK30M9CBT7JvQmDB4aT4lsmBiaNp74cH721HikUhw8vuu74YR6wmD+zgr2S7/du/Fyd0Lq5ecMw==", "comment"=>{"feed_id"=>"2", "body"=>"I know "}, "commit"=>"Create Comment", "feed_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameter: feed_id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("body", "feed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "I know "], ["feed_id", 2], ["created_at", "2015-05-07 11:17:50.963799"], ["updated_at", "2015-05-07 11:17:50.963799"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "comments" SET "commenter" = ?, "user_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?  [["commenter", "Nirajan"], ["user_id", 1], ["updated_at", "2015-05-07 11:17:50.966702"], ["id", 3]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/feeds/2
+Completed 302 Found in 9ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/feeds/2" for ::1 at 2015-05-07 17:02:50 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 52ms (Views: 46.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:02:53 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/2" for ::1 at 2015-05-07 17:02:57 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (1.4ms)
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 53ms (Views: 47.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds/2/edit" for ::1 at 2015-05-07 17:03:02 +0545
+Processing by FeedsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  cancan (1.6.10) lib/cancan/ability.rb:208:in `authorize!'
+  cancan (1.6.10) lib/cancan/controller_additions.rb:338:in `authorize!'
+  cancan (1.6.10) lib/cancan/controller_resource.rb:41:in `authorize_resource'
+  cancan (1.6.10) lib/cancan/controller_resource.rb:26:in `load_and_authorize_resource'
+  cancan (1.6.10) lib/cancan/controller_resource.rb:10:in `block in add_before_filter'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:448:in `instance_exec'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:448:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:145:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:145:in `block in halting_and_conditional'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/newimac/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (12.7ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/newimac/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (27.2ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:03:04 +0545
+Processing by FeedsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 61ms (Views: 56.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/2" for ::1 at 2015-05-07 17:03:12 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered comments/_form.html.erb (1.6ms)
+  Rendered feeds/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 76ms (Views: 69.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:03:20 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.3ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 59ms (Views: 52.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:03:21 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (2.0ms)
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered feeds/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 56ms (Views: 51.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:04:45 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mActsAsVotable::Vote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mActsAsVotable::Vote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 2)
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (2.0ms)
+  Rendered comments/_form.html.erb (1.7ms)
+  Rendered feeds/show.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 67ms (Views: 61.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap.self-8c0a18ef497d6248739c038ca99120e435b9d0ac33120bf065cd090558f70e73.css?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/feeds.self-acde013d84fcdda06249ceae0b878908bcf6280ff91c7db4d07f0372d80b662e.css?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/bootstrap.self-2bbd2c0465f01b1f8270958ddfc2e62a08915f295a35d22df2971eb936cf3c64.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/feeds.self-930fefbb1df13c3e0f7cde87d7640e284297bf7aa3f25fbfb17af246a670f315.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/table.self-3c4a5b356d5b21d69a281b221ab323360b5c62a6b48fa6dce87f53a1dafde5e3.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-07 17:04:45 +0545
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:04:48 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 58ms (Views: 53.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/2" for ::1 at 2015-05-07 17:04:49 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mActsAsVotable::Vote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35mActsAsVotable::Vote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 1)[0m
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1  [["feed_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered comments/_form.html.erb (1.6ms)
+  Rendered feeds/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 57ms (Views: 52.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:04:53 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 51ms (Views: 46.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:04:56 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mActsAsVotable::Vote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mActsAsVotable::Vote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 2)
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.9ms)
+  Rendered comments/_form.html.erb (1.3ms)
+  Rendered feeds/show.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 56ms (Views: 50.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:04:59 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.1ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 51ms (Views: 46.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/1" for ::1 at 2015-05-07 17:05:00 +0545
+Processing by FeedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36mActsAsVotable::Vote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mActsAsVotable::Vote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 2)
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."feed_id" = ? LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.8ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered feeds/show.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 58ms (Views: 52.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:05:02 +0545
+Processing by FeedsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered feeds/_form.html.erb (1.0ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 82ms (Views: 76.1ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-07 17:05:05 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ONf/7/kN+Gnf0IK26NzjGVdQ7LFk4WL+ybLVDgrwXzt5olruA2qCPjdVEDwNF7l2N7hfWDJ3KjS+G2ptexwiyQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-07 17:05:05 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.7ms)
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 60ms (Views: 52.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds" for ::1 at 2015-05-07 17:05:06 +0545
+Processing by FeedsController#index as HTML
+  Rendered devise/sessions/_form.html.erb (1.6ms)
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Feed"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Feed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Feed"]]
+  Rendered feeds/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 56ms (Views: 51.1ms | ActiveRecord: 0.7ms)

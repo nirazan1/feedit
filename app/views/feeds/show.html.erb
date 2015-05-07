@@ -1,0 +1,67 @@
+<div class="col-md-6">
+	<p>
+		<p><%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %> 
+		<h3><%= @feed.name %></h3>
+	</p>
+
+	<p>
+		<strong>
+		<%= @feed.text %>
+		</strong>
+	</p>
+	
+	<h5>
+		Created
+		<%= time_ago_in_words(@feed.created_at)+" ago" %>
+	</h5>
+
+	<h6>
+		Last Updated
+		<%= time_ago_in_words(@feed.updated_at)+" ago" %>
+	</h6>
+
+	<%= link_to like_feed_path(@feed), method: :put, class: "btn btn-success btn-xs" do %>
+		<%= @feed.get_upvotes.size %><span> Likes</span>
+	<% end %>
+	<%= link_to unlike_feed_path(@feed), method: :put, class: "btn btn-danger btn-xs" do %>
+		<%= @feed.get_downvotes.size %><span> Unlikes</span>
+	<% end %>
+
+	<% if @feed.get_downvotes.voters.any? %>
+		<h6>Unliked By: 
+			<% @feed.get_downvotes.voters.each do |p| %>
+				<%= p.first_name.capitalize %> 
+			<% end.to_sentence %></h6>
+	<% end %>
+
+	<% if @feed.get_upvotes.voters.any? %> 
+		<h6>Liked By: 
+			<% @feed.get_upvotes.voters.each do |p| %>
+				<%= p.first_name.capitalize %>
+			<% end.to_sentence %></h6>
+	<% end%>
+
+
+	<% if @feed.comments.any? %>
+		<h3>Comments:</h3>
+		<%= render @feed.comments %>
+	<% else %>
+		<h4>No Comments on this Feed, Be the first one !</h4>
+	<% end %>
+
+
+</div>
+<div class="col-md-6">
+	<% if user_signed_in? %>
+		<h3>Add New Comment</h3>
+		<%= render 'comments/form' %>
+	<% else %>
+		<p>You are not Signed In , please 
+		<%= link_to "Sign Up", new_user_registration_path %>
+		or Sign In below to Comment on this Feed !</p>
+		<%= render 'devise/sessions/form' %>
+		<%= link_to "Forgot your password?", new_password_path(resource_name) %>
+	<% end %>
+
+</div>
+

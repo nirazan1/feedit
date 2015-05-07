@@ -1,0 +1,27 @@
+// Place all the styles related to the feeds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.feed {
+	border-bottom: solid 1px #CCC;
+	padding: 5px 0;
+
+}
+
+.feed p {
+	margin: 4px 0;
+}
+
+
+.feed.hover {
+	background: #F0F0F0;
+}
+
+
+.feed .admin {
+	display: none;
+}
+
+.feed.hover .admin {
+	display: inline;
+}

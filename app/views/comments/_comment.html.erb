@@ -1,0 +1,16 @@
+<table class="table table-hover">
+	<tr>
+		<td>
+			<%= image_tag(comment.user.avatar.url, :class=> "img-circle", size: "40") %> 
+			<h4><%= comment.commenter %>:</h4>
+			<cite><%= comment.body %></cite>
+			<h6><%= time_ago_in_words(comment.created_at)+" ago" %></h6>
+			<% if user_signed_in? %>
+				<% if current_user.first_name == comment.commenter %>
+					<%= link_to "Delete", [comment.feed, comment], method: :delete, data: { confirm: "Are you sure? "}%>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+
+</table>
