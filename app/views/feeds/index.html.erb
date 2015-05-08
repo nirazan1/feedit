@@ -19,7 +19,7 @@
 				<cite><%= f.text %></cite> 
 				<h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
 				<p>
-					<button class="btn btn-default btn-xs"><%= link_to f.comments.count.to_s+" Comments", f%></button>
+					<button class="btn btn-default btn-xs"><%= link_to f.comments.count.to_s+" Comments", f%> </button>
 					<%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
 						<%= f.get_upvotes.size %> 
 						<i class="fa fa-thumbs-up fa-lg"></i>
