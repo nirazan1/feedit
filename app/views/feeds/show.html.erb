@@ -28,17 +28,11 @@
 	<% end %>
 
 	<% if @feed.get_downvotes.voters.any? %>
-		<h6>Unliked By: 
-			<% @feed.get_downvotes.voters.each do |p| %>
-				<%= p.first_name.capitalize %> 
-			<% end.to_sentence %></h6>
+		<h6>Unliked By: <% @feed.get_downvotes.voters.each do |p| %><%= image_tag(p.avatar, :title => p.first_name, :class=> "img-circle", size: "30") %> <% end %></h6>
 	<% end %>
 
 	<% if @feed.get_upvotes.voters.any? %> 
-		<h6>Liked By: 
-			<% @feed.get_upvotes.voters.each do |p| %>
-				<%= p.first_name.capitalize %>
-			<% end.to_sentence %></h6>
+		<h6>Liked By: <% @feed.get_upvotes.voters.each do |p| %><%= image_tag(p.avatar, :title => p.first_name, :class=> "img-circle", size: "30") %> <% end %></h6>
 	<% end%>
 
 
