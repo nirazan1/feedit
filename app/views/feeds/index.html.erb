@@ -21,12 +21,12 @@
 				<p>
 					<button class="btn btn-default btn-xs"><%= link_to f.comments.count.to_s+" Comments", f%></button>
 					<%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-						<%= f.get_upvotes.size %>
-						<span>Likes</span>
+						<%= f.get_upvotes.size %> 
+						<i class="fa fa-thumbs-up fa-lg"></i>
 					<% end %>
 					<%= link_to unlike_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
 						<%= f.get_downvotes.size %>
-						<span>Unlikes</span>
+						<i class="fa fa-thumbs-down fa-lg"></i>
 					<% end %>
 				</p>
 				<% if user_signed_in? %>

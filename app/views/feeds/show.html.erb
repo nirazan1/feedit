@@ -6,7 +6,9 @@
 
 	<p>
 		<strong>
+		<i class="fa fa-quote-left fa-fw"></i>
 		<%= @feed.text %>
+		<i class="fa fa-quote-right fa-fw"></i>
 		</strong>
 	</p>
 	
@@ -21,10 +23,10 @@
 	</h6>
 
 	<%= link_to like_feed_path(@feed), method: :put, class: "btn btn-success btn-xs" do %>
-		<%= @feed.get_upvotes.size %><span> Likes</span>
+		<%= @feed.get_upvotes.size %> <i class="fa fa-thumbs-up fa-lg"></i>
 	<% end %>
 	<%= link_to unlike_feed_path(@feed), method: :put, class: "btn btn-danger btn-xs" do %>
-		<%= @feed.get_downvotes.size %><span> Unlikes</span>
+		<%= @feed.get_downvotes.size %> <i class="fa fa-thumbs-down fa-lg"></i>
 	<% end %>
 
 	<% if @feed.get_downvotes.voters.any? %>

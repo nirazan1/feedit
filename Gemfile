@@ -5,6 +5,8 @@ gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
 gem 'acts_as_votable'
+gem 'rails_admin'
+gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
