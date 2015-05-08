@@ -54,13 +54,13 @@ class FeedsController < ApplicationController
 	def upvote
 		@feed = Feed.find(params[:id])
 		@feed.upvote_by current_user
-		redirect_to feeds_path
+		redirect_to (:back)
 	end
 
 	def downvote
 		@feed = Feed.find(params[:id])
 		@feed.downvote_by current_user
-		redirect_to feeds_path
+		redirect_to (:back)
 	end
 
 
