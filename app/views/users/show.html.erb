@@ -1,0 +1,9 @@
+<div class="col-md-6">
+<h2><%= @user.first_name %>
+<%= @user.last_name %></h2>
+<p><%= @user.username %></p>
+<p><%= @user.email %></p>
+</div>
+<div class="col-md-6">
+<%= image_tag(@user.avatar, :class=> "img-circle", size: "60") %>
+</div>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+  resources :users, :only => [:show]
+  
   resources :feeds do
     resources :comments
   end
