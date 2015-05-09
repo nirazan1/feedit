@@ -1,7 +1,7 @@
-<div class="col-md-5">
+<div class="col-md-6">
 	<p>
 		<p><%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %> 
-		<h3><%= @feed.name %></h3>
+		<h3><%= link_to @feed.name, {:controller => :users, :action => :show , :id => @feed.user_id } %> </h3>
 	</p>
 
 	<p>
@@ -47,7 +47,7 @@
 
 
 </div>
-<div class="col-md-5">
+<div class="col-md-6">
 	<% if user_signed_in? %>
 		<h3>Add New Comment</h3>
 		<%= render 'comments/form' %>

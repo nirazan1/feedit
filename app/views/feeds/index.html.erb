@@ -16,7 +16,7 @@
 			<td>
 				<p><%= image_tag(f.user.avatar.url, :class=> "img-circle", size: "40") %> 
 				<strong><%= link_to f.name.capitalize, {:controller => :users, :action => :show , :id => f.user_id } %></strong></p>
-				<cite><%= f.text %></cite> 
+				<i class="fa fa-quote-left fa-fw"></i><%= link_to f.text, f %><i class="fa fa-quote-right fa-fw"></i>
 				<h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
 				<p>
 

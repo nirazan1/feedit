@@ -3,8 +3,14 @@
 <%= @user.last_name %></h2>
 <p><%= @user.username %></p>
 <p><%= "Signed Up "+time_ago_in_words(@user.created_at) %></p>
-<p><%= "Last Signed In "+time_ago_in_words(@user.last_sign_in_at) %></p>
+<p><%= "Last Signed In "+time_ago_in_words(@user.current_sign_in_at) %></p>
+<p>
+	<i class="fa fa-quote-left fa-fw"></i>
+		<%= @user.about_me %>
+	<i class="fa fa-quote-right fa-fw"></i>
+</p>
 </div>
 <div class="col-md-6">
 <%= image_tag(@user.avatar, :class=> "img-circle", size: "200") %>
+
 </div>
