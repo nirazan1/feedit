@@ -2,8 +2,9 @@
 <h2><%= @user.first_name %>
 <%= @user.last_name %></h2>
 <p><%= @user.username %></p>
-<p><%= @user.email %></p>
+<p><%= "Signed Up "+time_ago_in_words(@user.created_at) %></p>
+<p><%= "Last Signed In "+time_ago_in_words(@user.last_sign_in_at) %></p>
 </div>
 <div class="col-md-6">
-<%= image_tag(@user.avatar, :class=> "img-circle", size: "60") %>
+<%= image_tag(@user.avatar, :class=> "img-circle", size: "200") %>
 </div>
