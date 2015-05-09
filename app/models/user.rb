@@ -5,10 +5,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, presence: true,
-                    length: { minimum: 5 }
+                    length: { minimum: 2 }
+  validates :username, presence: true,
+                    length: { minimum: 2 }, uniqueness: true 
+  validates :avatar, presence: true
 
-  has_many :feeds
-  has_many :comments
+  has_many :feeds, dependent: :destroy
+  has_many :comments, dependent: :destroy
   acts_as_voter
 
 end

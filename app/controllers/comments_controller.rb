@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 	def create
 		@feed = Feed.find(params[:feed_id])
 		@comment = @feed.comments.create(comment_params)
-		@comment.commenter = current_user.first_name
+		@comment.commenter = current_user.username
 		@comment.user_id = current_user.id
 		
 

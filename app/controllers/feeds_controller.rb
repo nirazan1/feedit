@@ -14,10 +14,10 @@ class FeedsController < ApplicationController
 
 	def create
 		@feed = current_user.feeds.build(feed_params)
-		@feed.name = current_user.first_name
+		# @feed.name = current_user.first_name
 
 		if @feed.save
-			flash[:notice] = "#{@feed.name}'s new feed created !!"
+			flash[:notice] = "#{@feed.user.username}'s new feed created !!"
 			redirect_to feeds_path
 		else
 			render 'new'
@@ -32,7 +32,7 @@ class FeedsController < ApplicationController
 		@feed = Feed.find(params[:id])
 
 		if @feed.update(feed_params)
-			flash[:notice] = "#{@feed.name}'s feed updated !!"
+			flash[:notice] = "#{@feed.user.username}'s feed updated !!"
 			redirect_to feeds_path
 		else
 			render 'edit'
@@ -45,7 +45,7 @@ class FeedsController < ApplicationController
 
 	def destroy
 		@feed = Feed.find(params[:id])
-		flash[:alert] = "#{@feed.name}'s '#{@feed.text}' deleted !!"
+		flash[:alert] = "#{@feed.user.username}'s '#{@feed.username.text}' deleted !!"
 		@feed.destroy
 
 		redirect_to feeds_path

@@ -7,10 +7,13 @@ class Ability
     can :dashboard              # grant access to the dashboard
     can :create , Feed
     can :update , Feed do |feed|
-        feed.try(:name) == user.first_name
+        feed.user.try(:username) == user.username
     end
     can :destroy, Feed do |feed|
-        feed.try(:name) == user.first_name
+        feed.user.try(:username) == user.username
+    end
+    can :destroy, Comment do |c|
+        c.user.try(:username) == user.username
     end
     can :upvote, Feed
     can :downvote, Feed
