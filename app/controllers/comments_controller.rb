@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 		
 
 		if @comment.save
-			flash[:notice] = "#{@comment.commenter}'s comment created !!"
+			flash[:notice] = " Comment created !"
 			redirect_to feed_path(@feed)
 		end
 	end
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 		@feed = Feed.find(params[:feed_id])
 		@comment = @feed.comments.find(params[:id])
 		@comment.destroy 
-		flash[:alert] = "#{@comment.commenter}'s comment deleted !!"
+		flash[:alert] = " Comment deleted !"
 		redirect_to feed_path(@feed)
 
 	end

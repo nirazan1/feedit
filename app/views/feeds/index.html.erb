@@ -38,12 +38,12 @@
 						<% if current_user.voted_down_for? f  %>
 							<%= link_to unvote_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
 								<%= f.get_downvotes.size %> 
-								<i class="fa fa-thumbs-up fa-lg"></i>
+								<i class="fa fa-thumbs-down fa-lg"></i>
 							<% end %>
 						<% else %>
 							<%= link_to unlike_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
 								<%= f.get_downvotes.size %> 
-								<i class="fa fa-thumbs-o-up fa-lg"></i>
+								<i class="fa fa-thumbs-o-down fa-lg"></i>
 							<% end %>
 						<% end %>
 					<% else %>
@@ -53,7 +53,7 @@
 						<% end %>
 						<%= link_to unlike_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
 							<%= f.get_downvotes.size %> 
-							<i class="fa fa-thumbs-o-up fa-lg"></i>
+							<i class="fa fa-thumbs-o-down fa-lg"></i>
 						<% end %>
 					<% end %>
 
