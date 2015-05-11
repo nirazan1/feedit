@@ -15,12 +15,13 @@
 		<tr>
 			<td>
 				<p><%= image_tag(f.user.avatar.url, :class=> "img-circle", size: "40") %> 
-				<strong><%= link_to f.user.username.capitalize, {:controller => :users, :action => :show , :id => f.user_id } %></strong></p>
+				<strong><%= link_to f.user.username.capitalize, users_show_path(f.user_id) %></strong></p>
 				<i class="fa fa-quote-left fa-fw"></i><%= link_to f.text, f %><i class="fa fa-quote-right fa-fw"></i>
 				<h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
 				<p>
 
 					<%= link_to pluralize(f.comments.count, 'comment'), f, class: "btn btn-primary btn-xs" %>
+
 					<% if user_signed_in? %>
 						<% if current_user.voted_up_for? f  %>
 							<%= link_to unvote_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>

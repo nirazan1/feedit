@@ -1,7 +1,7 @@
 <table class="table table-hover">
 	<tr>
 		<td>
-			<h4><%= image_tag(comment.user.avatar.url, :class=> "img-circle", size: "40") %> <%= link_to comment.commenter, {:controller => :users, :action => :show , :id => comment.user_id } %> </h4>
+			<h4><%= image_tag(comment.user.avatar.url, :class=> "img-circle", size: "40") %> <%= link_to comment.commenter, users_show_path(comment.user_id) %> </h4>
 			<cite><%= comment.body %></cite>
 			<h6><%= time_ago_in_words(comment.created_at)+" ago" %></h6>
 			<% if user_signed_in? %>

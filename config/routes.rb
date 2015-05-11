@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  match 'users/show', to: 'users#show', via: 'get'
+  match 'users/show/:id', to: 'users#show', via: 'get', as: 'users_show'
   
   resources :feeds do
     resources :comments
