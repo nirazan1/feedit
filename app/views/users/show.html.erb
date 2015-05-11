@@ -2,8 +2,8 @@
 <h2><%= @user.first_name %>
 <%= @user.last_name %></h2>
 <p><%= @user.username %></p>
-<p><%= "Signed Up "+time_ago_in_words(@user.created_at) %></p>
-<p><%= "Last Signed In "+time_ago_in_words(@user.current_sign_in_at) %></p>
+<p><%= "Signed Up "+time_ago_in_words(@user.created_at)+ " ago" %></p>
+<p><%= "Last Signed In "+time_ago_in_words(@user.current_sign_in_at)+ " ago" %></p>
 <p>
 	<i class="fa fa-quote-left fa-fw"></i>
 		<%= @user.about_me %>

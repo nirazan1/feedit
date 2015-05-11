@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       put "like" => "feeds#upvote"
       put "unlike" => "feeds#downvote"
+      put "unvote" => "feeds#unvote"
     end
   end
   

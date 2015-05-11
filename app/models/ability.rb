@@ -17,5 +17,6 @@ class Ability
     end
     can :upvote, Feed
     can :downvote, Feed
+    can :unvote, Feed
   end
 end
