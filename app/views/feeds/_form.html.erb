@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= form_for @feed do |f| %>
+  <%= form_for @feed, :html => {:required => true} do |f| %>
    
     <% if @feed.errors.any? %>
       <div id="error_explanation">
@@ -18,7 +18,7 @@
       
     </p>
     <p>
-      <%= f.text_area :text,:class=> "form-control" %>
+      <%= f.text_area :text,:class=> "form-control",:placeholder=> "Keep within 1 to 200 letters !", :required => "required",:maxlength=>"200" %>
     </p> 
     <p>
       <%= f.submit " Feed It !"%>
