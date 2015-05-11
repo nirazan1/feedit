@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
 	# http_basic_authenticate_with name: "root", password: "passpass", except: [:index, :show]
-	before_action :authenticate_user! , except: [:index, :show]
+	# before_action :authenticate_user! , except: [:index, :show]
 	load_and_authorize_resource except: [:create] 
 
 	def new
@@ -69,10 +69,10 @@ class FeedsController < ApplicationController
 		redirect_to (:back)
 	end
 
-
+	
 	private
 	def feed_params
-		params.require(:feed).permit(:name, :text)
+		params.require(:feed).permit(:text)
 	end
 
 end

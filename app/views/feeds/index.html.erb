@@ -21,6 +21,7 @@
 				<p>
 
 					<%= link_to pluralize(f.comments.count, 'comment'), f, class: "btn btn-primary btn-xs" %>
+			
 
 					<% if user_signed_in? %>
 						<% if current_user.voted_up_for? f  %>

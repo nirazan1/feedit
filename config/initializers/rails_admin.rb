@@ -37,4 +37,15 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model User do
+    list do
+      field :first_name
+      field :last_name
+      field :username
+      field :email
+      field :admin
+    end
+  end
+
 end

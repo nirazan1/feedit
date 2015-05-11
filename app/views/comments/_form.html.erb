@@ -5,9 +5,9 @@
 		<p>
 		<%= f.hidden_field :feed_id %>
 		<%= f.label :Comment %>
-		<%= f.text_field :body %>
+		<%= f.text_field :body,:class=> "form-control",:autofocus => "true"  %>
 		</p>
-		<%= f.submit %>
+		<%= f.submit "Post Comment"%>
 
 	<% end %>
 <% else %>
