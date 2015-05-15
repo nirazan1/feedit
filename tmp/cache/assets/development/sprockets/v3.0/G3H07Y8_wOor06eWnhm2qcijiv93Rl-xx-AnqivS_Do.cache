@@ -1,0 +1,9 @@
+I"–(function() {
+  $(function() {
+    return $('.feed').hover(function(event) {
+      return $(this).toggleClass("hover");
+    });
+  });
+
+}).call(this);
+:ET
