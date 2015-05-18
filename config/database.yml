@@ -21,9 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: feeds
-  pool: 5
-  username: feed_user
-  password:
+  <<: *default
+  database: db/production.sqlite3
