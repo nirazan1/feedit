@@ -39,6 +39,7 @@ RailsAdmin.config do |config|
   end
 
   config.model User do
+    exclude_fields :feeds, :comments,:reset_password_sent_at,:remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip
     list do
       field :first_name
       field :last_name
@@ -47,5 +48,15 @@ RailsAdmin.config do |config|
       field :admin
     end
   end
+
+  config.model Feed do
+    exclude_fields :comments,:user
+    list do
+      field :name do
+        label "Username"
+      end
+    end
+  end
+  
 
 end

@@ -14,13 +14,11 @@ class FeedsController < ApplicationController
 
 	def create
 		@feed = current_user.feeds.build(feed_params)
-		# @feed.name = current_user.first_name
-
+		@feed.name = current_user.username
 		if @feed.save
-			flash[:notice] = " New feed created !"
-			redirect_to feeds_path
+			redirect_to feeds_path, notice: "New feed created !" 
 		else
-			render 'new'
+			render :new
 		end
 	end
 
@@ -72,7 +70,7 @@ class FeedsController < ApplicationController
 	
 	private
 	def feed_params
-		params.require(:feed).permit(:text)
+		params.require(:feed).permit(:name,:text)
 	end
 
 end
