@@ -1,1 +1,2 @@
-$('#feeds').append("<%= j (render feeds_path) %>");
+$(".feed_content").val('');
+$("#container_feeds").prepend('<%= j render @feed  %>');

@@ -10,16 +10,24 @@ class FeedsController < ApplicationController
 	def index
 		@feeds = Feed.all
 		@feed = Feed.new
+		respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @feeds }
+    end
 	end
 
 	def create
 		@feed = current_user.feeds.build(feed_params)
 		@feed.name = current_user.username
-		if @feed.save
-			redirect_to feeds_path, notice: "New feed created !" 
-		else
-			render :new
-		end
+		respond_to do |format|
+      if @feed.save
+        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+        format.js
+      else
+        format.html { render action: "index" }
+        format.js
+      end
+    end
 	end
 
 	def edit
@@ -28,12 +36,14 @@ class FeedsController < ApplicationController
 
 	def update
 		@feed = Feed.find(params[:id])
-
-		if @feed.update(feed_params)
-			flash[:notice] = " Feed updated !"
-			redirect_to feeds_path
-		else
-			render 'edit'
+		respond_to do |format|
+			if @feed.update(feed_params)
+	      format.html { redirect_to feeds_path }
+	      format.js
+			else
+				format.html { render :edit }
+	      format.js
+			end
 		end
 	end
 
@@ -43,10 +53,11 @@ class FeedsController < ApplicationController
 
 	def destroy
 		@feed = Feed.find(params[:id])
-		flash[:alert] = " Feed deleted !"
 		@feed.destroy
-
-		redirect_to feeds_path
+		respond_to do |format|
+      format.html { redirect_to feeds_url,notice: 'Feed was successfully deleted.' }
+      format.js
+    end
 	end
 
 	def upvote

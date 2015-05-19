@@ -1,0 +1,84 @@
+<table class="table table-hover" >
+	<tr id="feed<%= feed.id%>">
+			<td>
+				<p><%= image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %> 
+				<strong><%= link_to feed.user.username.capitalize, users_show_path(feed.user_id) %></strong></p>
+				<i class="fa fa-quote-left fa-fw"></i><%= link_to feed.text, feed %><i class="fa fa-quote-right fa-fw"></i>
+				<h6><%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
+				<p>
+
+					<%= link_to pluralize(feed.comments.count, 'comment'), feed, class: "btn btn-primary btn-xs" %>
+			
+
+					<% if user_signed_in? %>
+						<% if current_user.voted_up_for? feed  %>
+							<%= link_to unvote_feed_path(feed), method: :put, class: "btn btn-success btn-xs" do %>
+								<%= feed.get_upvotes.size %> 
+								<i class="fa fa-thumbs-up fa-lg"></i>
+							<% end %>
+						<% else %>
+							<%= link_to like_feed_path(feed), method: :put, class: "btn btn-success btn-xs" do %>
+								<%= feed.get_upvotes.size %> 
+								<i class="fa fa-thumbs-o-up fa-lg"></i>
+							<% end %>
+						<% end %>
+						<% if current_user.voted_down_for? feed  %>
+							<%= link_to unvote_feed_path(feed), method: :put, class: "btn btn-warning btn-xs" do %>
+								<%= feed.get_downvotes.size %> 
+								<i class="fa fa-thumbs-down fa-lg"></i>
+							<% end %>
+						<% else %>
+							<%= link_to unlike_feed_path(feed), method: :put, class: "btn btn-warning btn-xs" do %>
+								<%= feed.get_downvotes.size %> 
+								<i class="fa fa-thumbs-o-down fa-lg"></i>
+							<% end %>
+						<% end %>
+					<% else %>
+						<%= link_to like_feed_path(feed), method: :put, class: "btn btn-success btn-xs" do %>
+							<%= feed.get_upvotes.size %> 
+							<i class="fa fa-thumbs-o-up fa-lg"></i>
+						<% end %>
+						<%= link_to unlike_feed_path(feed), method: :put, class: "btn btn-danger btn-xs" do %>
+							<%= feed.get_downvotes.size %> 
+							<i class="fa fa-thumbs-o-down fa-lg"></i>
+						<% end %>
+					<% end %>
+
+					
+				</p>
+				<% if user_signed_in? %>
+					<% if can? :update, feed %>
+							<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=feed.id%>">Edit</button> 
+					<% end %>
+					<% if can? :destroy, feed %>
+							<%= link_to "Delete", feed, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}, remote:true %>
+					<% end %>
+				<% end %>
+
+			</td>
+		</tr>
+</table>
+
+<%= form_for(feed, :method => :put) do |f| %>
+    <div class="modal fade" id="myupdatefeed_<%= feed.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="field">
+              <%= f.label :Feed %>
+              <%= f.text_area :text, class: "form-control"%>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+            <%= submit_tag "Update", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
