@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                     length: { minimum: 2 }
   validates :username, presence: true,
                     length: { minimum: 2 }, uniqueness: { case_sensitive: false }
-  validates :avatar, presence: true
+
 
   has_many :feeds, dependent: :destroy
   has_many :comments, dependent: :destroy
