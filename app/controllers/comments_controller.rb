@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 		@comment.commenter = current_user.username
 		@comment.user_id = current_user.id
 		
-
 		if @comment.save
 			flash[:notice] = " Comment created !"
 			redirect_to feed_path(@feed)
