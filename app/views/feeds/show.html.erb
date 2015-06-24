@@ -58,11 +58,11 @@
 	<% end %>
 
 	<% if @feed.get_downvotes.voters.any? %>
-		<h6>Unliked By: <% @feed.get_downvotes.voters.each do |p| %><%= link_to(p.username, users_show_path(p.id)) %> <% end %></h6>
+		<h6>Unliked By: <% @feed.get_downvotes.voters.each do |p| %><%= link_to(image_tag(p.avatar, :title => p.first_name, :class=> "img-circle", size: "30"), users_show_path(p.id)) %> <% end %></h6>
 	<% end %>
 
 	<% if @feed.get_upvotes.voters.any? %> 
-		<h6>Liked By: <% @feed.get_upvotes.voters.each do |p| %><%= link_to(p.username, users_show_path(p.id)) %> <% end %></h6>
+		<h6>Liked By: <% @feed.get_upvotes.voters.each do |p| %><%= link_to(image_tag(p.avatar, :title => p.first_name, :class=> "img-circle", size: "30"), users_show_path(p.id)) %> <% end %></h6>
 	<% end%>
 
 	<% if @feed.comments.any? %>
