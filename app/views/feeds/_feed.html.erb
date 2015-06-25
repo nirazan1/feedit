@@ -1,7 +1,7 @@
 <table class="table table-hover" >
 	<tr id="feed<%= feed.id%>">
 			<td>
-				<p><%= image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %> 
+				<p><% image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %>
 				<strong><%= link_to feed.user.username.capitalize, users_show_path(feed.user_id) %></strong></p>
 				<i class="fa fa-quote-left fa-fw"></i><%= link_to feed.text, feed %><i class="fa fa-quote-right fa-fw"></i>
 				<h6><%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
