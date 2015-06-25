@@ -1,6 +1,11 @@
 <div class="col-md-6">
+    <div>
+      <%= link_to :back do  %>
+          <i class="fa fa-long-arrow-left fa-2x"></i>
+      <% end %>
+    </div>
 	<p>
-		<p><% image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
+		<p><%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
 		<h3><%= link_to @feed.user.username, users_show_path(@feed.user_id) %> </h3>
 	</p>
 
@@ -62,7 +67,7 @@
 	<% end %>
 
 	<% if @feed.get_upvotes.voters.any? %>
-		<h6>Liked By: <% @feed.get_upvotes.voters.reverse.each do |p| %><%= link_to(p.username, users_show_path(p.id)) %> <% end %></h6>
+		<h6>Liked By: <% @feed.get_upvotes.voters.reverse.each do |p| %><%= link_to((image_tag(p.avatar.url, :class=> "img-circle", size: "30")), users_show_path(p.id) ) %> <% end %></h6>
 	<% end%>
 
 	<% if @feed.comments.any? %>

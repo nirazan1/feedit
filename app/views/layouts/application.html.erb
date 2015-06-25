@@ -22,7 +22,7 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
-							<!--<li><%= image_tag(current_user.avatar.url, :class=> "img-circle", size: "50") %></li>-->
+							<li><%= image_tag(current_user.avatar.url, :class=> "img-circle", size: "50") %></li>
 							<li><%= link_to current_user.first_name+" "+current_user.last_name, edit_user_registration_path, :title => "Edit Profile" %></li>
 							<% if current_user.admin == true %>
 								<li><%= link_to "Manage Blog", rails_admin.dashboard_path %></li>
@@ -44,15 +44,21 @@
       <br>
       <br>
         <div class="alert alert-info" role="alert">
-          <h1>Feedit</h1>
+          <h1>Feed-it</h1>
           <p>All the latest feeds ... </p>
         </div>
 		
 		<% if notice %>
-		  <p class="alert alert-success"><%= notice %></p>
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= notice %>
+          </div>
 		<% end %>
 		<% if alert %>
-		  <p class="alert alert-danger"><%= alert %></p>
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= alert %>
+          </div>
 		<% end %>
 	
 		<%= yield %>

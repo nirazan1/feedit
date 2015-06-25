@@ -39,7 +39,7 @@
 
   <div class="col-md-6">
     <div class="field">
-      <%= image_tag("http://images.clipartpanda.com/question-mark-black-and-white-Icon-round-Question_mark.jpg", :class=> "img-thumbnail", size: "100") %>
+      <i class="fa fa-picture-o fa-5x"></i>
       <p>
       <%= f.label :avatar do %>
         <%= f.file_field :avatar %>
@@ -48,7 +48,7 @@
     </div>
   
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up", class: "btn btn-primary btn-sm" %>
     </div>
   </div>
 <% end %>

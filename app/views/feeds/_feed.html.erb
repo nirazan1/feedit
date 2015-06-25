@@ -1,8 +1,8 @@
-<div class="col-lg-12">
+<div class="col-lg-12" >
   <div class="bs-component">
-    <div class="alert alert-dismissible alert-info">
+    <div class="alert alert-dismissible alert-info" id="feed<%= feed.id%>">
       <button class="close" data-dismiss="alert" type="button">×</button>
-      <p><% image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %>
+      <p><%= image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %>
         <strong><%= link_to feed.user.username.capitalize, users_show_path(feed.user_id) %></strong></p>
       <i class="fa fa-quote-left fa-fw"></i><%= link_to feed.text, feed %><i class="fa fa-quote-right fa-fw"></i>
       <h6><%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
@@ -39,7 +39,7 @@
                 <%= feed.get_upvotes.size %>
                 <i class="fa fa-thumbs-o-up fa-lg"></i>
             <% end %>
-            <%= link_to unlike_feed_path(feed), method: :put, class: "btn btn-danger btn-xs" do %>
+            <%= link_to unlike_feed_path(feed), method: :put, class: "btn btn-warning btn-xs" do %>
                 <%= feed.get_downvotes.size %>
                 <i class="fa fa-thumbs-o-down fa-lg"></i>
             <% end %>
@@ -59,7 +59,7 @@
   </div>
 </div>
 
-<%= form_for(feed, :method => :put,remote: true) do |f| %>
+<%= form_for(feed, :method => :put) do |f| %>
     <div class="modal fade" id="myupdatefeed_<%= feed.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

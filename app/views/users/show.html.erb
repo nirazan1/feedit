@@ -1,8 +1,21 @@
 <div class="col-md-4">
+  <div>
+    <%= link_to :back do  %>
+        <i class="fa fa-long-arrow-left fa-2x"></i>
+    <% end %>
+  </div>
 <%= image_tag(@user.avatar, :class=> "img-circle", size: "200") %>
-<h2><%= @user.first_name %>
-<%= @user.last_name %></h2>
-<p><%= @user.username %></p>
+  <% if @user.admin == true %>
+      <h6>Admin</h6>
+  <% else %>
+      <h6>Normal User</h6>
+  <% end %>
+  <h2>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+</h2>
+
+<p>@<%= @user.username %></p>
 <p><%= "Signed Up "+time_ago_in_words(@user.created_at)+ " ago" %></p>
 <p><%= "Last Seen "+time_ago_in_words(@user.last_seen_at)+ " ago" %></p>
 <% unless @user.about_me.nil? %>
@@ -15,79 +28,88 @@
 </div>
 <div class="col-md-4">
 	<h3>Feeds By <%= @user.username.capitalize %></h3>
-<% @user.feeds.reverse.each do |f| %>
-	<table class="table table-hover">
-		<tr>
-			<td>
-				<%= link_to f.text, f %>
-				<h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
-				<p>
+  <% if @user.feeds.any? %>
+      <% @user.feeds.reverse.each do |f| %>
+            <div class="bs-component">
+              <div class="alert alert-dismissible alert-info" id="feed<%= f.id%>">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                <p><%= image_tag(f.user.avatar.url, :class=> "img-circle", size: "40") %>
+                  <strong><%= link_to f.user.username.capitalize, users_show_path(f.user_id) %></strong></p>
+                <i class="fa fa-quote-left fa-fw"></i><%= link_to f.text, f %><i class="fa fa-quote-right fa-fw"></i>
+                <h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
+                <p>
 
-					<%= link_to pluralize(f.comments.count, 'comment'), f, class: "btn btn-primary btn-xs" %>
-			
+                  <%= link_to pluralize(f.comments.count, 'comment'), f, class: "btn btn-primary btn-xs" %>
 
-					<% if user_signed_in? %>
-						<% if current_user.voted_up_for? f  %>
-							<%= link_to unvote_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-								<%= f.get_upvotes.size %> 
-								<i class="fa fa-thumbs-up fa-lg"></i>
-							<% end %>
-						<% else %>
-							<%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-								<%= f.get_upvotes.size %> 
-								<i class="fa fa-thumbs-o-up fa-lg"></i>
-							<% end %>
-						<% end %>
-						<% if current_user.voted_down_for? f  %>
-							<%= link_to unvote_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
-								<%= f.get_downvotes.size %> 
-								<i class="fa fa-thumbs-down fa-lg"></i>
-							<% end %>
-						<% else %>
-							<%= link_to unlike_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
-								<%= f.get_downvotes.size %> 
-								<i class="fa fa-thumbs-o-down fa-lg"></i>
-							<% end %>
-						<% end %>
-					<% else %>
-						<%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-							<%= f.get_upvotes.size %> 
-							<i class="fa fa-thumbs-o-up fa-lg"></i>
-						<% end %>
-						<%= link_to unlike_feed_path(f), method: :put, class: "btn btn-danger btn-xs" do %>
-							<%= f.get_downvotes.size %> 
-							<i class="fa fa-thumbs-o-down fa-lg"></i>
-						<% end %>
-					<% end %>
 
-					
-				</p>
-				<% if user_signed_in? %>
-					<% if can? :update, f %>
-							<%= link_to "Edit", edit_feed_path(f)%> 
-					<% end %>
-					<% if can? :destroy, f %>
-							<%= link_to "Delete", f, method: :delete, data: {confirm: "Are you sure?"} %>
-					<% end %>
-				<% end %>
-			</td>
-		</tr>
-	</table>
-	<% end %>
+                  <% if user_signed_in? %>
+                      <% if current_user.voted_up_for? f  %>
+                          <%= link_to unvote_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
+                              <%= f.get_upvotes.size %>
+                              <i class="fa fa-thumbs-up fa-lg"></i>
+                          <% end %>
+                      <% else %>
+                          <%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
+                              <%= f.get_upvotes.size %>
+                              <i class="fa fa-thumbs-o-up fa-lg"></i>
+                          <% end %>
+                      <% end %>
+                      <% if current_user.voted_down_for? f  %>
+                          <%= link_to unvote_feed_path(f), method: :put, class: "btn btn-warning btn-xs" do %>
+                              <%= f.get_downvotes.size %>
+                              <i class="fa fa-thumbs-down fa-lg"></i>
+                          <% end %>
+                      <% else %>
+                          <%= link_to unlike_feed_path(f), method: :put, class: "btn btn-warning btn-xs" do %>
+                              <%= f.get_downvotes.size %>
+                              <i class="fa fa-thumbs-o-down fa-lg"></i>
+                          <% end %>
+                      <% end %>
+                  <% else %>
+                      <%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
+                          <%= f.get_upvotes.size %>
+                          <i class="fa fa-thumbs-o-up fa-lg"></i>
+                      <% end %>
+                      <%= link_to unlike_feed_path(f), method: :put, class: "btn btn-warning btn-xs" do %>
+                          <%= f.get_downvotes.size %>
+                          <i class="fa fa-thumbs-o-down fa-lg"></i>
+                      <% end %>
+                  <% end %>
+
+
+                </p>
+                <% if user_signed_in? %>
+                    <% if can? :update, f %>
+                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=f.id%>">Edit</button>
+                    <% end %>
+                    <% if can? :destroy, f %>
+                        <%= link_to "Delete", f, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}, remote:true %>
+                    <% end %>
+                <% end %>
+              </div>
+            </div>
+      <% end %>
+  <%else %>
+    <p>None</p>
+  <% end %>
 
 </div>
 <div class="col-md-4">
 	<h3>Comments By <%= @user.username.capitalize %></h3>
-	<% @user.comments.reverse.each do |c| %>
-	<table class="table table-hover">
-		<tr>
-			<td>
-				<h4>"<%=link_to c.body, Feed.find(c.feed_id) %>"<h4>
-				<i class="fa fa-share"> <%= link_to Feed.find(c.feed_id).user.username.capitalize, users_show_path(Feed.find(c.feed_id).user_id) %> :
-					"<%= link_to Feed.find(c.feed_id).text, Feed.find(c.feed_id)%>"</i>
-				<h6><%= time_ago_in_words(c.updated_at)+" ago."%> </h6>
-			</td>
-		</tr>
-	</table>
-	<% end %>
+	<% if @user.comments.any? %>
+      <% @user.comments.reverse.each do |c| %>
+            <div class="bs-component">
+              <div class="alert alert-dismissible alert-info" id="comment<%= c.id%>">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                <h4>"<%=link_to c.body, Feed.find(c.feed_id) %>"<h4>
+                  <i class="fa fa-share"> <%= link_to Feed.find(c.feed_id).user.username.capitalize, users_show_path(Feed.find(c.feed_id).user_id) %> :
+                    "<%= link_to Feed.find(c.feed_id).text, Feed.find(c.feed_id)%>"</i>
+                  <h6><%= time_ago_in_words(c.updated_at)+" ago."%> </h6>
+              </div>
+            </div>
+      <% end %>
+    <% else %>
+        <p>None</p>
+    <% end %>
+
 </div>
