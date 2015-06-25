@@ -64,6 +64,6 @@
 <% end %>
 
 
-  <p>Unhappy? Delete account ? <%= button_to "Deactivate", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <h6>Unhappy? Delete account ? <%= link_to "Deactivate", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></h6>
 
-  <%= link_to "Back", :back %>
+  <% link_to "Back", :back %>
