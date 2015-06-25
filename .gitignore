@@ -34,3 +34,6 @@ bower.json
 # Ignore pow environment settings
 .powenvtmp
 *.sqlite3
+
+# Ignore application configuration
+/config/application.yml
