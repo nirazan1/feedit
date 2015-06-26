@@ -1,13 +1,13 @@
-<% if user_signed_in? %>	
+<% if user_signed_in? %>
 	<%= form_for([@feed, @feed.comments.build], :html => {:required => true}) do |f| %>
-		
+
 		</p>
 		<p>
 		<%= f.hidden_field :feed_id %>
 		<%= f.label :Comment %>
 		<%= f.text_field :body,:class=> "form-control",:required => "required",:placeholder=> "Keep within 1 to 200 letters !", :maxlength=>"200"  %>
 		</p>
-		<%= f.submit " Post Comment !"%>
+		<%= f.submit " Post Comment !", class: "btn btn-primary btn-xs"%>
 
 	<% end %>
 <% else %>

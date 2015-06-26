@@ -1,5 +1,4 @@
+$("#feed<%= @feed.id%>").remove();
 $("#myupdatefeed_<%= @feed.id %>").modal('hide');
-$("#feed_<%= @feed.id%>").fadeOut(500, function(){
-	$(this).remove();
-	$("#container_feeds").prepend('<%= j render @feed %>')
-});
+$(".modal-backdrop").remove();
+$("#container_feeds").prepend('<%= j render @feed %>');

@@ -17,12 +17,13 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="/">Feed It </a>
+	      <a class="navbar-brand" href="/"><i class="fa fa-bolt fa-lg">
+            Feed It</i> </a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
-							<li><%= image_tag(current_user.avatar.url, :class=> "img-circle", size: "50") %></li>
+							<li><% image_tag(current_user.avatar.url, :class=> "img-circle", size: "50") %></li>
 							<li><%= link_to current_user.first_name+" "+current_user.last_name, edit_user_registration_path, :title => "Edit Profile" %></li>
 							<% if current_user.admin == true %>
 								<li><%= link_to "Manage Blog", rails_admin.dashboard_path %></li>
@@ -45,7 +46,7 @@
       <br>
         <div class="alert alert-info" role="alert">
           <h1>Feed-it</h1>
-          <p>All the latest feeds ... </p>
+          <p>All the latest feeds ... So feed it, just feed it </p>
         </div>
 		
 		<% if notice %>

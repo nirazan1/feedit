@@ -76,4 +76,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'feedit.herokuapp.com'}
+  ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :authentication => :plain,
+      :user_name      => "no-reply.feedit@nirazan.com.np",
+      :password       => ENV['EMAIL_PASSWORD'],
+      :domain         => 'nirazan.com.np',
+      :enable_starttls_auto => true
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
