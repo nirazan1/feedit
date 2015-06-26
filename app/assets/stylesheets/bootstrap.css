@@ -5073,6 +5073,16 @@ a.thumbnail.active {
     padding: 9px;
     color: #555555;
 }
+.fixed-element-right {
+    padding-right: 5%;
+    position: fixed;
+    top: 30%;
+}
+.fixed-element-left {
+    padding-left: 5%;
+    position: fixed;
+    top: 30%;
+}
 .alert {
     padding: 15px;
     margin-bottom: 20px;

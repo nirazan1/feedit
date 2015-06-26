@@ -4,75 +4,82 @@
           <i class="fa fa-long-arrow-left fa-2x"></i>
       <% end %>
     </div>
-	<p>
-		<p><%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
-		<h3><%= link_to @feed.user.username, users_show_path(@feed.user_id) %> </h3>
-	</p>
-
-	<p>
-		<strong>
-		<i class="fa fa-quote-left fa-fw"></i>
-		<%= @feed.text %>
-		<i class="fa fa-quote-right fa-fw"></i>
-		</strong>
-	</p>
-	
-	<h5>
-		Created
-		<%= time_ago_in_words(@feed.created_at)+" ago" %>
-	</h5>
-
-	<h6>
-		Last Updated
-		<%= time_ago_in_words(@feed.updated_at)+" ago" %>
-	</h6>
+  <br>
+  <div class="bs-component">
+    <div class="alert alert-dismissible alert-info"">
+    <p>
+      <%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
+    </p>
+    <p>
+      <%= link_to @feed.user.username, users_show_path(@feed.user_id) %>
+    </p>
 
 
-	<% if user_signed_in? %>
-		<% if current_user.voted_up_for? @feed %>
-			<%= link_to unvote_feed_path(@feed ), method: :put, class: "btn btn-success btn-xs" do %>
-				<%= @feed.get_upvotes.size %> 
-				<i class="fa fa-thumbs-up fa-lg"></i>
-			<% end %>
-		<% else %>
-			<%= link_to like_feed_path(@feed ), method: :put, class: "btn btn-success btn-xs" do %>
-				<%= @feed.get_upvotes.size %> 
-				<i class="fa fa-thumbs-o-up fa-lg"></i>
-			<% end %>
-		<% end %>
-		<% if current_user.voted_down_for? @feed   %>
-			<%= link_to unvote_feed_path(@feed ), method: :put, class: "btn btn-warning btn-xs" do %>
-				<%= @feed.get_downvotes.size %> 
-				<i class="fa fa-thumbs-down fa-lg"></i>
-			<% end %>
-		<% else %>
-			<%= link_to unlike_feed_path(@feed ), method: :put, class: "btn btn-warning btn-xs" do %>
-				<%= @feed.get_downvotes.size %> 
-				<i class="fa fa-thumbs-o-down fa-lg"></i>
-			<% end %>
-		<% end %>
-	<% else %>
-		<%= link_to like_feed_path(@feed), method: :put, class: "btn btn-success btn-xs" do %>
-			<%= @feed.get_upvotes.size %> 
-			<i class="fa fa-thumbs-o-up fa-lg"></i>
-		<% end %>
-		<%= link_to unlike_feed_path(@feed), method: :put, class: "btn btn-warning btn-xs" do %>
-			<%= @feed.get_downvotes.size %> 
-			<i class="fa fa-thumbs-o-down fa-lg"></i>
-		<% end %>
-	<% end %>
+    <p>
+      <i class="fa fa-quote-left fa-fw"></i>
+      <%= @feed.text %>
+      <i class="fa fa-quote-right fa-fw"></i>
+    </p>
 
-	<% if @feed.get_downvotes.voters.any? %>
-		<h6>Unliked By: <% @feed.get_downvotes.voters.reverse.each do |p| %><%= link_to(p.username, users_show_path(p.id)) %> <% end %></h6>
-	<% end %>
+    <h5>
+      Created
+      <%= time_ago_in_words(@feed.created_at)+" ago" %>
+    </h5>
 
-	<% if @feed.get_upvotes.voters.any? %>
-		<h6>Liked By: <% @feed.get_upvotes.voters.reverse.each do |p| %><%= link_to((image_tag(p.avatar.url, :class=> "img-circle", size: "30")), users_show_path(p.id) ) %> <% end %></h6>
-	<% end%>
+    <h6>
+      Last Updated
+      <%= time_ago_in_words(@feed.updated_at)+" ago" %>
+    </h6>
+
+
+    <% if user_signed_in? %>
+        <% if current_user.voted_up_for? @feed %>
+            <%= link_to unvote_feed_path(@feed ), method: :put, class: "btn btn-success btn-xs" do %>
+                <%= @feed.get_upvotes.size %>
+                <i class="fa fa-thumbs-up fa-lg"></i>
+            <% end %>
+        <% else %>
+            <%= link_to like_feed_path(@feed ), method: :put, class: "btn btn-success btn-xs" do %>
+                <%= @feed.get_upvotes.size %>
+                <i class="fa fa-thumbs-o-up fa-lg"></i>
+            <% end %>
+        <% end %>
+        <% if current_user.voted_down_for? @feed   %>
+            <%= link_to unvote_feed_path(@feed ), method: :put, class: "btn btn-warning btn-xs" do %>
+                <%= @feed.get_downvotes.size %>
+                <i class="fa fa-thumbs-down fa-lg"></i>
+            <% end %>
+        <% else %>
+            <%= link_to unlike_feed_path(@feed ), method: :put, class: "btn btn-warning btn-xs" do %>
+                <%= @feed.get_downvotes.size %>
+                <i class="fa fa-thumbs-o-down fa-lg"></i>
+            <% end %>
+        <% end %>
+    <% else %>
+        <%= link_to like_feed_path(@feed), method: :put, class: "btn btn-success btn-xs" do %>
+            <%= @feed.get_upvotes.size %>
+            <i class="fa fa-thumbs-o-up fa-lg"></i>
+        <% end %>
+        <%= link_to unlike_feed_path(@feed), method: :put, class: "btn btn-warning btn-xs" do %>
+            <%= @feed.get_downvotes.size %>
+            <i class="fa fa-thumbs-o-down fa-lg"></i>
+        <% end %>
+    <% end %>
+
+    <% if @feed.get_downvotes.voters.any? %>
+        <h6>Unliked By: <% @feed.get_downvotes.voters.reverse.each do |p| %><%= link_to(p.username, users_show_path(p.id)) %> <% end %></h6>
+    <% end %>
+
+    <% if @feed.get_upvotes.voters.any? %>
+        <h6>Liked By: <% @feed.get_upvotes.voters.reverse.each do |p| %><%= link_to(p.username, users_show_path(p.id) ) %> <% end %></h6>
+    <% end%>
+
+    </div>
+  </div>
 
 	<% if @feed.comments.any? %>
 		<h3>Comments:</h3>
-		<%= render @feed.comments %>
+		<%= render @feed.comments.reverse %>
 	<% else %>
 		<h4>No Comments on this Feed, Be the first one !</h4>
 	<% end %>
@@ -80,16 +87,27 @@
 
 </div>
 <div class="col-md-6">
-	<% if user_signed_in? %>
-		<h3>Add New Comment</h3>
-		<%= render 'comments/form' %>
-	<% else %>
-		<p>You are not Signed In , please 
-		<%= link_to "Sign Up", new_user_registration_path %>
-		or Sign In below to Comment on this Feed !</p>
-		<%= render 'devise/sessions/form' %>
-		<%= link_to "Forgot your password?", new_password_path(resource_name) %>
-	<% end %>
+  <br>
+  <br>
+  <div class="fixed-element-right">
+      <div class="bs-component">
+        <div class="alert alert-dismissible alert-info">
+        <% if user_signed_in? %>
+            <h3>Add New Comment</h3>
+            <%= render 'comments/form' %>
+        <% else %>
+            <p>To Post Comment, Please Sign In !
+            <%= render 'devise/sessions/form' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+            </p>
+              <p>
+                <%= link_to "Sign Up", new_user_registration_path %>
+            </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 </div>
+
 
