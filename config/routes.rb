@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'donate/index'
+
+  get 'subscriptions/index'
+
+  get 'subscriptions/plans'
+
+  get 'subscriptions/stripe_checkout'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   match 'users/show/:id', to: 'users#show', via: 'get', as: 'users_show'
-  
+  match '/stripe_checkout' => 'subscriptions#stripe_checkout' , via: 'post'
+  match '/pay_with_paypal' => 'subscriptions#pay_with_paypal' , via: 'post'
   resources :feeds do
     resources :comments
   end

@@ -38,5 +38,7 @@ bower.json
 
 # Ignore application configuration
 /config/application.yml
-.idea
+.idea/
 /public/uploads
+.DS_Store
+.byebug_history

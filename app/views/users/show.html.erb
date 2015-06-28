@@ -26,7 +26,7 @@
     </div>
 
 </div>
-<div class="col-md-4">
+<div class="col-md-4" id="container_feeds">
 	<h3>Feeds By <%= @user.username.capitalize %></h3>
   <% if @user.feeds.any? %>
       <% @user.feeds.reverse.each do |f| %>
@@ -37,43 +37,7 @@
                 <h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
                 <p>
 
-                  <%= link_to pluralize(f.comments.count, 'comment'), f, class: "btn btn-primary btn-xs" %>
-
-
-                  <% if user_signed_in? %>
-                      <% if current_user.voted_up_for? f  %>
-                          <%= link_to unvote_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-                              <%= f.get_upvotes.size %>
-                              <i class="fa fa-thumbs-up fa-lg"></i>
-                          <% end %>
-                      <% else %>
-                          <%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-                              <%= f.get_upvotes.size %>
-                              <i class="fa fa-thumbs-o-up fa-lg"></i>
-                          <% end %>
-                      <% end %>
-                      <% if current_user.voted_down_for? f  %>
-                          <%= link_to unvote_feed_path(f), method: :put, class: "btn btn-warning btn-xs" do %>
-                              <%= f.get_downvotes.size %>
-                              <i class="fa fa-thumbs-down fa-lg"></i>
-                          <% end %>
-                      <% else %>
-                          <%= link_to unlike_feed_path(f), method: :put, class: "btn btn-warning btn-xs" do %>
-                              <%= f.get_downvotes.size %>
-                              <i class="fa fa-thumbs-o-down fa-lg"></i>
-                          <% end %>
-                      <% end %>
-                  <% else %>
-                      <%= link_to like_feed_path(f), method: :put, class: "btn btn-success btn-xs" do %>
-                          <%= f.get_upvotes.size %>
-                          <i class="fa fa-thumbs-o-up fa-lg"></i>
-                      <% end %>
-                      <%= link_to unlike_feed_path(f), method: :put, class: "btn btn-warning btn-xs" do %>
-                          <%= f.get_downvotes.size %>
-                          <i class="fa fa-thumbs-o-down fa-lg"></i>
-                      <% end %>
-                  <% end %>
-
+                  <%= render partial: "feeds/votes", locals: {feed: f} %>
 
                 </p>
                 <% if user_signed_in? %>
@@ -81,7 +45,7 @@
                         <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=f.id%>">Edit</button>
                     <% end %>
                     <% if can? :destroy, f %>
-                        <%= link_to "Delete", f, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}, remote:true %>
+                        <%= button_to "Delete", f, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}, remote:true %>
                     <% end %>
                 <% end %>
               </div>

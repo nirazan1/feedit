@@ -50,4 +50,15 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
   ActionMailer::Base.delivery_method = :smtp
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+        :login => "es.rubydev4-facilitator_api1.gmail.com",
+        :password => "SYAMK37RBL7MS5K9",
+        :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31Apc70MIzfBW-dURIv16NmwOqKssR"
+    }
+    ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new( paypal_options )
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new( paypal_options )
+  end
 end
+
