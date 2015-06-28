@@ -6,7 +6,7 @@
     </div>
   <br>
   <div class="bs-component">
-    <div class="alert alert-dismissible alert-info"">
+    <div class="alert alert-dismissible alert-info">
     <p>
       <%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
     </p>
@@ -76,13 +76,14 @@
 
     </div>
   </div>
-
-	<% if @feed.comments.any? %>
-		<h3>Comments:</h3>
-		<%= render @feed.comments.reverse %>
-	<% else %>
-		<h4>No Comments on this Feed, Be the first one !</h4>
-	<% end %>
+    <h3>Comments:</h3>
+    <div id="comment_container">
+        <% if @feed.comments.any? %>
+                <%= render @feed.comments.reverse %>
+        <% else %>
+            <h4 id="no-comment">No Comments on this Feed, Be the first one !</h4>
+        <% end %>
+    </div>
 
 
 </div>

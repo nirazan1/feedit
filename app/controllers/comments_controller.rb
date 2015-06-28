@@ -7,10 +7,12 @@ class CommentsController < ApplicationController
 		@comment = @feed.comments.create(comment_params)
 		@comment.commenter = current_user.username
 		@comment.user_id = current_user.id
-		
-		if @comment.save
-			flash[:notice] = " Comment created !"
-			redirect_to feed_path(@feed)
+
+		respond_to do |format|
+			if @comment.save
+				format.html { redirect_to @feed, notice: 'Comment was successfully posted' }
+				format.js
+			end
 		end
 	end
 

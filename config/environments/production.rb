@@ -88,4 +88,24 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
   ActionMailer::Base.delivery_method = :smtp
+
+  config.middleware.use ExceptionNotification::Rack,
+                        :email => {
+                            :email_prefix => "[FeedIt ERROR] ",
+                            :sender_address => %{"FeedIt Notifier" #{ENV['SENDGRID_USERNAME']}},
+                            :exception_recipients => %w{es.rubydev4@gmail.com}
+                        }
+
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+        :login => "es.rubydev4-facilitator_api1.gmail.com",
+        :password => ENV['PAYPAL_PASSWORD'],
+        :signature => ENV['PAYPAL_SIGNATURE']
+    }
+    ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new( paypal_options )
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new( paypal_options )
+  end
+
 end

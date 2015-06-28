@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
 	# http_basic_authenticate_with name: "root", password: "passpass", except: [:index, :show]
 	# before_action :authenticate_user! , except: [:index, :show]
-	load_and_authorize_resource except: [:create] 
+	load_and_authorize_resource except: [:create, :index]
 
 	def new
 		@feed = current_user.feeds.build
@@ -63,19 +63,34 @@ class FeedsController < ApplicationController
 	def upvote
 		@feed = Feed.find(params[:id])
 		@feed.upvote_by current_user
-		redirect_to (:back)
+		respond_to do |format|
+			if @feed.upvote_by current_user
+				format.html { redirect_to :back }
+				format.js
+			end
+		end
 	end
 
 	def unvote
 		@feed = Feed.find(params[:id])
 		@feed.unvote_by current_user
-		redirect_to (:back)
+		respond_to do |format|
+			if @feed.unvote_by current_user
+				format.html { redirect_to :back }
+				format.js
+			end
+		end
 	end
 
 	def downvote
 		@feed = Feed.find(params[:id])
 		@feed.downvote_by current_user
-		redirect_to (:back)
+		respond_to do |format|
+			if @feed.downvote_by current_user
+				format.html { redirect_to :back }
+				format.js
+			end
+		end
 	end
 
 	
