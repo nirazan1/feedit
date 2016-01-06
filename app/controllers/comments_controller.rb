@@ -19,9 +19,11 @@ class CommentsController < ApplicationController
 	def destroy
 		@feed = Feed.find(params[:feed_id])
 		@comment = @feed.comments.find(params[:id])
-		@comment.destroy 
-		flash[:alert] = " Comment deleted !"
-		redirect_to feed_path(@feed)
+		@comment.destroy
+    respond_to do |format|
+      format.html { redirect_to feed_path(@feed),notice: 'Feed was successfully deleted.' }
+      format.js
+    end
 
 	end
 

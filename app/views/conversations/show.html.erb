@@ -1,0 +1,28 @@
+
+    <%= subscribe_to conversation_path(@conversation) %>
+
+<div>
+  <%= link_to :back do  %>
+      <i class="fa fa-long-arrow-left fa-2x"></i>
+  <% end %>
+</div>
+<div class="chatboxhead">
+  <div class="chatboxtitle">
+    <i class="fa fa-comments"></i>
+
+    <%= @reciever.username %>
+  </div>
+</div>
+<div class="chatbox_<%= @conversation.id %>">
+  <div class="chatboxcontent">
+    <% if @messages.any? %>
+        <%= render @messages.reverse %>
+    <% end %>
+  </div>
+</div>
+<div class="chatboxinput">
+  <%= form_for([@conversation, @message], remote: true) do |f| %>
+      <%= f.text_area :body, class: "chatboxtextarea", "data-cid" => @conversation.id %>
+      <%= f.submit " Send", class: "btn btn-primary btn-xs"%>
+  <% end %>
+</div>
