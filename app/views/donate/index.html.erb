@@ -1,10 +1,11 @@
 <h1>Donate</h1>
 <p>Help Us Grow , Donate!</p>
 <%= form_tag('/stripe_checkout',{method: :post}) do %>
-    <%= text_field_tag :amount, params[:amount] , placeholder: "$10", :id => 'amount' , :pattern => '^[1-99]*$' %>
+    <%= text_field_tag :amount, params[:amount] , placeholder: "$10", :id => 'card' , :pattern => '^[1-99]*$', size: 5, maxlength: 3, onchange: "if ($('#card').val() <= 1) { alert('Be generous make donation of 1$ or more :)'); }"%>
     <script class="stripe-button" data-amount=params[:amount] data-currency="USD" data-email=params[:email] data-key="<%= Rails.configuration.stripe[:publishable_key] %>" src="https://checkout.stripe.com/checkout.js"></script>
 <% end %>
+<br>
 <%= form_tag('/pay_with_paypal',{method: :post}) do %>
-    <%= text_field_tag :amount, params[:amount] , placeholder: "$10", :id => 'amount' , :pattern => '^[1-99]*$' %>
-    <%= submit_tag "Donate via PayPal" , class: "btn btn-primary btn-sm",id: "pay_by_paypal" %>
+    <%= text_field_tag :amount, params[:amount] , placeholder: "$10", :id => 'paypal' , :pattern => '^[1-99]*$', size: 5, maxlength: 3, onchange: "if ($('#paypal').val() <= 1) { alert('Be generous make donation of 1$ or more :)'); }" %>
+    <%= submit_tag "Pay with PayPal" , class: "btn btn-warning btn-sm",id: "pay_by_paypal" %>
 <% end %>

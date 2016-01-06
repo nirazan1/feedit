@@ -12,6 +12,8 @@ gem 'rails', '4.2.1'
 gem 'fog'
 group :development do 
 	gem 'sqlite3'	
+  gem "better_errors"
+
 end
 group :production do 
 	gem 'pg'
@@ -54,3 +56,6 @@ gem 'stripe'
 gem 'byebug'
 gem 'activemerchant'
 gem 'paypal-sdk-rest'
+gem 'private_pub'
+gem 'thin'
+gem 'faye'

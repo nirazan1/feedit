@@ -1,12 +1,12 @@
 <div class="bs-component" id="comment_<%=comment.id%>">
-  <div class="alert alert-dismissible alert-info"">
+  <div class="alert alert-dismissible alert-info">
     <button class="close" data-dismiss="alert" type="button">×</button>
     <h4><% image_tag(comment.user.avatar.url, :class=> "img-circle", size: "40") %> <%= link_to comment.commenter, users_show_path(comment.user_id) %> </h4>
     <cite> <%= comment.body %></cite>
     <h6><%= time_ago_in_words(comment.created_at)+" ago" %>
       <% if user_signed_in? %>
           <% if can? :destroy, comment %>
-              <%= link_to "Delete", [comment.feed, comment], method: :delete, data: { confirm: "Are you sure? "}%>
+              <%= link_to "Delete", [comment.feed, comment],remote: true, method: :delete, data: { confirm: "Are you sure? "}%>
           <% end %>
       <% end %>
     </h6>

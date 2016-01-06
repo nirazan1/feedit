@@ -23,7 +23,11 @@ Rails.application.routes.draw do
       put "unvote" => "feeds#unvote"
     end
   end
-  
+
+  resources :conversations do
+    resources :messages, only: [:create]
+  end
+
   root 'feeds#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

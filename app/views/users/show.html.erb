@@ -16,8 +16,10 @@
       <%= @user.first_name %>
       <%= @user.last_name %>
     </h2>
+    <% unless current_user == @user %>
+        <%= link_to "Send Message", conversations_path(:sender_id => current_user.id , :recipient_id => @user.id ), :method => :post, class: "btn btn-success btn-xs start-conversation" %>
+    <% end %>
     <h6><%= "Member Since "+(@user.created_at.to_formatted_s(:long_ordinal))%></h6>
-    <h6><%= "Last Seen "+time_ago_in_words(@user.last_seen_at)+ " ago" %></h6>
     <% unless @user.about_me.nil? %>
         <p>
                 <%= simple_format(@user.about_me) %>
@@ -63,7 +65,7 @@
             <div class="bs-component">
               <div class="alert alert-dismissible alert-info" id="comment<%= c.id%>">
                 <button class="close" data-dismiss="alert" type="button">×</button>
-                <h4>"<%=link_to c.body, Feed.find(c.feed_id) %>"<h4>
+                <h4>"<%=link_to c.body, Feed.find(c.feed_id) %>"</h4>
                   <i class="fa fa-angle-double-right"> <%= link_to Feed.find(c.feed_id).user.username.capitalize, users_show_path(Feed.find(c.feed_id).user_id) %> :
                     "<%= link_to Feed.find(c.feed_id).text, Feed.find(c.feed_id)%>"</i>
                   <h6><%= time_ago_in_words(c.updated_at)+" ago."%> </h6>

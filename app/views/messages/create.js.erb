@@ -1,0 +1,15 @@
+<% publish_to @path do %>
+$(".chatboxtextarea").val("");
+var id = "<%= @conversation.id %>";
+var chatbox = $(".chatboxcontent");
+var sender_id = "<%= @message.user.id %>";
+var reciever_id = $('meta[name=user-id]').attr("content");
+
+chatbox.prepend("<%= j render (@message) %>");
+chatbox.scrollTop(chatbox[0].scrollHeight);
+
+if (sender_id != reciever_id) {
+    chatbox.children().last().removeClass("self").addClass("other");
+    chatbox.scrollTop(chatbox[0].scrollHeight);
+}
+<% end %>

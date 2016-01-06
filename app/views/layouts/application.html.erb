@@ -2,10 +2,11 @@
 <html>
 <head>
   <title>Feed It !</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', :media => 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -23,12 +24,12 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-                <li><% image_tag(current_user.avatar.url, :class=> "img-circle", size: "50") %></li>
+                <li><%# image_tag(current_user.avatar.url, :class=> "img-circle", :size => "50") %></li>
                 <li><%= link_to current_user.first_name+" "+current_user.last_name, edit_user_registration_path, :title => "Edit Profile" %></li>
                 <% if current_user.admin == true %>
                     <li><%= link_to "Manage Blog", rails_admin.dashboard_path %></li>
                 <% end %>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></li>
             <% else %>
                 <li><%= link_to "Sign up", new_user_registration_path%></li>
                 <li><%= link_to "Sign In", new_user_session_path%></li>
