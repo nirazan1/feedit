@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219080627) do
+ActiveRecord::Schema.define(version: 20160226050405) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -55,6 +55,23 @@ ActiveRecord::Schema.define(version: 20160219080627) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.boolean  "read",            default: false
+    t.integer  "user_id"
+    t.integer  "feed_id"
+    t.integer  "comment_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "sender_id"
+  end
+
+  add_index "notifications", ["comment_id"], name: "index_notifications_on_comment_id"
+  add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
+  add_index "notifications", ["feed_id"], name: "index_notifications_on_feed_id"
+  add_index "notifications", ["sender_id"], name: "index_notifications_on_sender_id"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", null: false

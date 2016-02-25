@@ -5,7 +5,7 @@
     <% end %>
   </div>
   <br>
-  <div class="alert alert-info" role="alert">
+  <div class="alert boxbackgroundcolor" role="alert">
     <%= image_tag(@user.avatar, :class=> "img-circle", size: "200") %>
       <% if @user.admin == true %>
           <h6>Admin</h6>
@@ -16,7 +16,7 @@
       <%= @user.first_name %>
       <%= @user.last_name %>
     </h2>
-    <% unless current_user == @user %>
+    <% if current_user && current_user != @user %>
         <%= link_to "Send Message", conversations_path(:sender_id => current_user.id , :recipient_id => @user.id ), :method => :post, class: "btn btn-success btn-xs start-conversation" %>
     <% end %>
     <h6><%= "Member Since "+(@user.created_at.to_formatted_s(:long_ordinal))%></h6>
@@ -33,21 +33,20 @@
   <% if @user.feeds.any? %>
       <% @user.feeds.reverse.each do |f| %>
             <div class="bs-component">
-              <div class="alert alert-dismissible alert-info" id="feed<%= f.id%>">
+              <div class="alert alert-dismissible boxbackgroundcolor" id="feed<%= f.id%>">
                 <button class="close" data-dismiss="alert" type="button">×</button>
                 <i class="fa fa-quote-left fa-fw"></i><%= link_to f.text, f %><i class="fa fa-quote-right fa-fw"></i>
                 <h6><%= time_ago_in_words(f.updated_at)+" ago."%> </h6>
-                <p>
-
-                  <%= render partial: "feeds/votes", locals: {feed: f} %>
-
-                </p>
+                <hr class="margin5">
+                <%= render partial: "feeds/votes", locals: {feed: f} %>
                 <% if user_signed_in? %>
                     <% if can? :update, f %>
-                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=f.id%>">Edit</button>
+                        <button type="button" class="btn btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=f.id%>"><i class="fa fa-pencil-square-o">Edit</i></button>
                     <% end %>
                     <% if can? :destroy, f %>
-                        <%= button_to "Delete", f, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}, remote:true %>
+                        <%= link_to f, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+                            <i class="fa fa-lg fa-trash-o"></i>
+                        <% end %>
                     <% end %>
                 <% end %>
               </div>
@@ -63,7 +62,7 @@
 	<% if @user.comments.any? %>
       <% @user.comments.reverse.each do |c| %>
             <div class="bs-component">
-              <div class="alert alert-dismissible alert-info" id="comment<%= c.id%>">
+              <div class="alert alert-dismissible boxbackgroundcolor" id="comment<%= c.id%>">
                 <button class="close" data-dismiss="alert" type="button">×</button>
                 <h4>"<%=link_to c.body, Feed.find(c.feed_id) %>"</h4>
                   <i class="fa fa-angle-double-right"> <%= link_to Feed.find(c.feed_id).user.username.capitalize, users_show_path(Feed.find(c.feed_id).user_id) %> :

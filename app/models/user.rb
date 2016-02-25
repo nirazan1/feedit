@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :feeds, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   acts_as_voter
 
 end

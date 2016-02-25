@@ -1,0 +1,12 @@
+<br>
+<br>
+
+<% if user_signed_in? %>
+    <%= form_for [feed, feed.comments.build]  do |f| %>
+    <p>
+      <%= f.hidden_field :feed_id %>
+      <%= f.text_field :body,:class=> "form-control comment_content",:required => "required",:placeholder=> "Keep within 1 to 200 letters !", :maxlength=>"200"  %>
+      <span class="pull-right"><%= f.submit "Comment", class: "btn btn-xs"%></span>
+    </p>
+	<% end %>
+<% end %>

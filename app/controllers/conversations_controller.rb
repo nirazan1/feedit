@@ -23,9 +23,13 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    @reciever = interlocutor(@conversation)
-    @messages = @conversation.messages
-    @message = Message.new
+    if current_user.id  == @conversation.sender_id || current_user.id == @conversation.recipient_id || @conversation.recipient_id == nil ||  @conversation.sender_id == nil
+      @reciever = interlocutor(@conversation)
+      @messages = @conversation.messages
+      @message = Message.new
+    else
+      redirect_to root_path , notice: 'Unauthorized ! '
+    end
   end
 
   private
