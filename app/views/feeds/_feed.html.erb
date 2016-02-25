@@ -1,28 +1,32 @@
 
-  <div class="bs-component">
-    <div class="alert alert-dismissible alert-info" id="feed<%= feed.id%>">
+<div class="col-md-6 blog-main box">
+    <div class="bs-component">
+    <div class="alert alert-dismissible boxbackgroundcolor" id="feed<%= feed.id%>">
       <button class="close" data-dismiss="alert" type="button">×</button>
-      <p><% image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %>
-        <strong><%= link_to feed.user.username.capitalize, users_show_path(feed.user_id) %></strong></p>
-      <i class="fa fa-quote-left fa-fw"></i><%= link_to feed.text, feed %><i class="fa fa-quote-right fa-fw"></i>
-      <h6><%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
-      <p>
-
-        <%= render partial: "votes", locals: {feed: feed} %>
-
-      </p>
-      <p>
+      <% image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %>
+        <strong><%= link_to feed.user.username.capitalize, users_show_path(feed.user_id) %>: </strong>
+      <%= link_to feed.text, feed %>
+      <time datetime="<%= feed.updated_at %>" title="<%= feed.updated_at.strftime("%d %b  %Y at %I:%M%p") %>">
+        <h6><%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
+      </time>
+      <hr class="margin5">
+      <%= render partial: "votes", locals: {feed: feed} %>
+      <span class="pull-right" >
       <% if user_signed_in? %>
           <% if can? :update, feed %>
-              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=feed.id%>">Edit</button>
+                <button type="button" class="btn btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%=feed.id%>"><i class="fa fa-pencil-square-o">Edit</i></button>
           <% end %>
           <% if can? :destroy, feed %>
-              <%= button_to "Delete", feed, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}, remote:true %>
+                <%= link_to feed, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+                    <i class="fa fa-lg fa-trash-o"></i>
+                <% end %>
           <% end %>
       <% end %>
-      </p>
+      </span>
+      <%= render partial: "comments/quickcomment", locals: {feed: feed} %>
     </div>
   </div>
+</div>
 
 <%= form_for(feed, :method => :put, remote: true) do |f| %>
     <div class="modal fade" id="myupdatefeed_<%= feed.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

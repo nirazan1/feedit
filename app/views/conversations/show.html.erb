@@ -1,6 +1,6 @@
-
-    <%= subscribe_to conversation_path(@conversation) %>
-
+<div style="display:none">
+  <%= hidden_field_tag :socket_id %>
+</div>
 <div>
   <%= link_to :back do  %>
       <i class="fa fa-long-arrow-left fa-2x"></i>
@@ -16,7 +16,7 @@
 <div class="chatbox_<%= @conversation.id %>">
   <div class="chatboxcontent">
     <% if @messages.any? %>
-        <%= render @messages.reverse %>
+        <%= render @messages %>
     <% end %>
   </div>
 </div>
@@ -26,3 +26,60 @@
       <%= f.submit " Send", class: "btn btn-primary btn-xs"%>
   <% end %>
 </div>
+<audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio>
+
+<script>
+
+    var chatbox = $(".chatbox_<%= @conversation.id %>").children();
+    chatbox.scrollTop(chatbox[0].scrollHeight);
+
+    var pusher = new Pusher('<%= Pusher.key %>', {
+        encrypted: true
+    });
+
+    pusher.connection.bind('connected', function () {
+        var socket_id = pusher.connection.socket_id;
+        $('#socket_id').val(socket_id);
+    });
+
+    var channel = pusher.subscribe("<%= @conversation.id.to_s %>");
+    channel.bind('my_event', function(data) {
+        $(".chatboxtextarea").val("");
+        var chatbox = $(".chatbox_<%= @conversation.id %>").children();
+        var sender_id = data.sender_id
+        var reciever_id = $('meta[name=user-id]').attr("content");
+
+
+        if (sender_id != reciever_id) {
+            chatbox.append(
+                    '<li class="other">' +
+                    '<div class="avatar">' +
+                    '<img src="http://placehold.it/50x50" />' +
+                    '</div>' +
+                    '<div class="chatboxmessagecontent">' +
+                    '<p>' + data.message + '</p>' +
+                    '<time>' + data.username + " "+ data.dt +
+                    '</time>' +
+                    '</div>' +
+                    '</li>'
+            ).removeClass("self").addClass("other");
+            chatbox.scrollTop(chatbox[0].scrollHeight);
+            chatBox.notify();
+        }
+        else {
+            chatbox.append(
+                    '<li class="self">' +
+                    '<div class="avatar">' +
+                    '<img src="http://placehold.it/50x50" />' +
+                    '</div>' +
+                    '<div class="chatboxmessagecontent">' +
+                    '<p>' + data.message + '</p>' +
+                     '<time>' + data.dt + '</time>' +
+                    '</div>' +
+                    '</li>'
+            );
+            chatbox.scrollTop(chatbox[0].scrollHeight);
+        }
+
+    });
+</script>

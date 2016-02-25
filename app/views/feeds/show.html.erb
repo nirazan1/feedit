@@ -6,7 +6,7 @@
     </div>
   <br>
   <div class="bs-component">
-    <div class="alert alert-dismissible alert-info">
+    <div class="alert alert-dismissible boxbackgroundcolor">
     <p>
       <%= image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
     </p>
@@ -31,6 +31,8 @@
       <%= time_ago_in_words(@feed.updated_at)+" ago" %>
     </h6>
 
+
+      <hr class="margin5">
 
     <% if user_signed_in? %>
         <% if current_user.voted_up_for? @feed %>
@@ -65,6 +67,18 @@
             <i class="fa fa-thumbs-o-down fa-lg"></i>
         <% end %>
     <% end %>
+      <span class="pull-right">
+          <% if user_signed_in? %>
+              <% if can? :update, @feed %>
+                  <button type="button" class="btn btn-xs" data-toggle="modal" data-target="#myupdatefeed_<%= @feed.id%>"><i class="fa fa-pencil-square-o">Edit</i></button>
+                  <% end %>
+                  <% if can? :destroy, @feed %>
+                      <%= link_to @feed, method: :delete, data: {confirm: "Are you sure?"} do %>
+                      <i class="fa fa-lg fa-trash-o"></i>
+                  <% end %>
+              <% end %>
+          <% end %>
+      </span>
 
     <% if @feed.get_downvotes.voters.any? %>
         <h6>Unliked By: <% @feed.get_downvotes.voters.reverse.each do |p| %><%= link_to(p.username, users_show_path(p.id)) %> <% end %></h6>
@@ -92,7 +106,7 @@
   <br>
   <div class="fixed-element-right">
       <div class="bs-component">
-        <div class="alert alert-dismissible alert-info">
+        <div class="alert alert-dismissible boxbackgroundcolor">
         <% if user_signed_in? %>
             <h3>Add New Comment</h3>
             <%= render 'comments/form' %>

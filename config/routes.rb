@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
   get 'donate/index'
 
   get 'subscriptions/index'
@@ -28,6 +30,9 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  resources :notifications
+
+  post 'pusher/auth'
   root 'feeds#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

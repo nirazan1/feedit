@@ -1,22 +1,15 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true , required: true%>
-  </div>
+<%= form_for("user", :url => user_session_path) do |f| %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, required: true %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="input-group loginform">
+      <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+      <%= f.text_field :email , placeholder: "email", class: "form-control"%>
+      <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+      <%= f.password_field :password , placeholder: "password", class: "form-control" %>
     </div>
-  <% end -%>
+    <div class="input-group pull-right">
+      <%= f.submit 'Sign in', class: "btn btn-sm btn-primary" %><%= link_to "Forgot your password?", new_password_path('user'), class: "btn btn-sm btn-warning" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-primary btn-xs" %>
-  </div>
+
+    <br><br>
 <% end %>

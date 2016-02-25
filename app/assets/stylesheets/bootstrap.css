@@ -5076,7 +5076,7 @@ a.thumbnail.active {
 .fixed-element-right {
     padding-right: 5%;
     position: fixed;
-    top: 30%;
+    top: 45%;
 }
 .fixed-element-left {
     padding-left: 5%;
@@ -6957,4 +6957,27 @@ button.close {
 .panel-danger .panel-title,
 .panel-info .panel-title {
     color: #fff;
+}
+@media (max-width: 360px) {
+    .alert{
+        display: none;
+    }
+    .chatboxcontent{
+        height: 90%;
+
+    }
+    .fa .fa-long-arrow-left{
+        display: none;
+    }
+    .container{
+        display: none;
+    }
+
+}
+.margin5 {
+    margin-bottom: 5px;
+}
+
+.boxbackgroundcolor{
+    background-color: rgb(248, 248, 248);
 }

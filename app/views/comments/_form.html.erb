@@ -6,8 +6,7 @@
 		<%= f.label :Comment %>
 		<%= f.text_field :body,:class=> "form-control comment_content",:required => "required",:placeholder=> "Keep within 1 to 200 letters !", :maxlength=>"200"  %>
 		</p>
-		<%= f.submit " Post Comment !", class: "btn btn-primary btn-xs"%>
-
+	    <span class="pull-right"><%= f.submit " Post Comment !", class: "btn btn-xs"%></span>
 	<% end %>
 <% else %>
   <p>You are not Signed In, Please
