@@ -90,12 +90,12 @@
 
     </div>
   </div>
-    <h3>Comments:</h3>
+    <p>Comments:</p>
     <div id="comment_container">
         <% if @feed.comments.any? %>
                 <%= render @feed.comments.reverse %>
         <% else %>
-            <h4 id="no-comment">No Comments on this Feed, Be the first one !</h4>
+            <p id="no-comment">No Comments on this Feed, Be the first one !</p>
         <% end %>
     </div>
 
@@ -108,7 +108,6 @@
       <div class="bs-component">
         <div class="alert alert-dismissible boxbackgroundcolor">
         <% if user_signed_in? %>
-            <h3>Add New Comment</h3>
             <%= render 'comments/form' %>
         <% else %>
             <p>To Post Comment, Please Sign In !
