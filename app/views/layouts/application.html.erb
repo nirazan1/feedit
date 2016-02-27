@@ -7,6 +7,8 @@
   <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <%= javascript_include_tag "https://js.stripe.com/v1/" %>
+  <%= javascript_include_tag "application" %>
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
   <%= csrf_meta_tags %>
 </head>
@@ -32,9 +34,17 @@
                 <% end %>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge"><%= Notification.get_count(current_user.id)%></span> New Notifications <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% if current_user.notifications %>
+                        <% current_user.notifications.reverse[0...5].each do |n| %>
+                            <li><%= link_to "#{n.sender.username} sent you a new message" , n.conversation %></li>
+                        <% end %>
+                    <% end %>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to "Show All", notifications_index_path %></li>
+                  </ul>
                 </li>
-                <li><p class="badge"><%= link_to Notification.get_count(current_user.id), notifications_index_path %></p></li>
           <% else %>
                 <li><%= link_to "Sign up", new_user_registration_path%></li>
                 <li><%= link_to "Sign In", new_user_session_path%></li>
