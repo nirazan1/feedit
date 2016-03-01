@@ -11,6 +11,10 @@
     <i class="fa fa-comments"></i>
 
     <%= @reciever.username %>
+    <div class="avatar">
+      <%= image_tag(@reciever.avatar.url, :class=> "img-circle", :size => "50") if @reciever.avatar.url %>
+    </div>
+
   </div>
 </div>
 <div class="chatbox_<%= @conversation.id %>">
@@ -22,7 +26,7 @@
 </div>
 <div class="chatboxinput">
   <%= form_for([@conversation, @message], remote: true) do |f| %>
-      <%= f.text_field :body, class: "chatboxtextarea", "data-cid" => @conversation.id, required: true  %>
+      <%= f.text_field :body, class: "chatboxtextarea", "data-cid" => @conversation.id, required: true %>
       <%= f.submit " Send", class: "btn btn-primary btn-xs"%>
   <% end %>
 </div>
@@ -46,14 +50,12 @@
         var chatbox = $(".chatbox_<%= @conversation.id %>").children();
         var sender_id = data.sender_id
         var reciever_id = $('meta[name=user-id]').attr("content");
+        var avatar = data.avatar
 
 
         if (sender_id != reciever_id) {
             chatbox.append(
                     '<li class="other">' +
-                    '<div class="avatar">' +
-                    '<img src="http://placehold.it/50x50" />' +
-                    '</div>' +
                     '<div class="chatboxmessagecontent">' +
                     '<p>' + data.message + '</p>' +
                     '<time>' + data.username + " "+ data.dt +
@@ -68,9 +70,6 @@
             $(".chatboxtextarea").val("");
             chatbox.append(
                     '<li class="self">' +
-                    '<div class="avatar">' +
-                    '<img src="http://placehold.it/50x50" />' +
-                    '</div>' +
                     '<div class="chatboxmessagecontent">' +
                     '<p>' + data.message + '</p>' +
                      '<time>' + data.dt + '</time>' +
