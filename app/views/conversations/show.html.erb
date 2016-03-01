@@ -22,14 +22,13 @@
 </div>
 <div class="chatboxinput">
   <%= form_for([@conversation, @message], remote: true) do |f| %>
-      <%= f.text_area :body, class: "chatboxtextarea", "data-cid" => @conversation.id, required: true %>
+      <%= f.text_field :body, class: "chatboxtextarea", "data-cid" => @conversation.id, required: true  %>
       <%= f.submit " Send", class: "btn btn-primary btn-xs"%>
   <% end %>
 </div>
 <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio>
 
 <script>
-
     var chatbox = $(".chatbox_<%= @conversation.id %>").children();
     chatbox.scrollTop(chatbox[0].scrollHeight);
 
@@ -44,7 +43,6 @@
 
     var channel = pusher.subscribe("<%= @conversation.id.to_s %>");
     channel.bind('my_event', function(data) {
-        $(".chatboxtextarea").val("");
         var chatbox = $(".chatbox_<%= @conversation.id %>").children();
         var sender_id = data.sender_id
         var reciever_id = $('meta[name=user-id]').attr("content");
@@ -67,6 +65,7 @@
             chatBox.notify();
         }
         else {
+            $(".chatboxtextarea").val("");
             chatbox.append(
                     '<li class="self">' +
                     '<div class="avatar">' +
