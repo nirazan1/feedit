@@ -1,7 +1,13 @@
 <div class="bs-component" id="comment_<%=comment.id%>">
   <div class="alert alert-dismissible boxbackgroundcolor">
     <button class="close" data-dismiss="alert" type="button">×</button>
-    <% image_tag(comment.user.avatar.url, :class=> "img-circle", size: "40") %> <%= link_to comment.commenter, users_show_path(comment.user_id) %>: <cite> <%= comment.body %></cite>
+    <% if comment.user.avatar.url %>
+        <strong><%= link_to image_tag(comment.user.avatar.url, :class=> "img-circle", size: "40"), users_show_path(comment.user_id) , title: comment.user.username %> </strong>
+    <% else %>
+        <strong><%= link_to comment.user.username , users_show_path(comment.user_id) %> </strong>
+    <% end %>
+     <cite> <%= comment.body %></cite>
+
     <h6><%= time_ago_in_words(comment.created_at)+" ago" %>
       <hr class="margin5">
       <% if user_signed_in? %>
