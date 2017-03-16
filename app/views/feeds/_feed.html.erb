@@ -3,11 +3,13 @@
     <div class="bs-component">
     <div class="alert alert-dismissible boxbackgroundcolor" id="feed<%= feed.id%>">
       <button class="close" data-dismiss="alert" type="button">×</button>
-      <!-- <% if feed.user.avatar.url %> -->
-        <!-- <strong><%= link_to image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40"), users_show_path(feed.user_id) , title: feed.user.username %> </strong> -->
-      <!-- <% else %> -->
+      <% if feed.user.avatar.url %>
+        <strong><% link_to image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40"), users_show_path(feed.user_id) , title: feed.user.username %> </strong>
+        <strong><%= link_to feed.user.username , users_show_path(feed.user_id) %> </strong>
+        <hr>
+      <% else %>
           <strong><%= link_to feed.user.username , users_show_path(feed.user_id) %> </strong>
-      <!-- <% end %> -->
+      <% end %>
       <%= link_to feed.text, feed %>
       <time datetime="<%= feed.updated_at %>" title="<%= feed.updated_at.strftime("%d %b  %Y at %I:%M%p") %>">
         <h6><%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
