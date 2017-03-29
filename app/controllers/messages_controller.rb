@@ -24,9 +24,9 @@ class MessagesController < ApplicationController
       Pusher.trigger(@conversation.id.to_s, 'my_event', {
           message: @message.body,
           username: message_interlocutor(@message).username,
-          dt: @message.created_at.strftime("%H:%M %p"),
+          dt: day_in_word_or_date(@message.created_at),
           sender_id: @message.user.id,
-          mcdt: @message.created_at
+          mcdt: day_in_word_or_date(@message.created_at)
        },
        {
          socket_id: params[:socket_id]
@@ -44,6 +44,18 @@ class MessagesController < ApplicationController
 
   def message_interlocutor(message)
     message.user == message.conversation.sender ? message.conversation.sender : message.conversation.recipient
+  end
+
+  def day_in_word_or_date(datetime)
+    return 'n/a' if datetime.blank?
+    if datetime.today?
+      datetime.strftime('%l:%M %p') + ' Today'
+    elsif datetime.to_date == Date.yesterday
+      datetime.strftime('%l:%M %p') + ' Yesterday'
+    else
+      datetime.strftime('%l:%M %p, %b %e (%a) %Y')
+      #  4:18 PM, Jan 10 (Tue) 2017
+    end
   end
 
 

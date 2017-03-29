@@ -1,8 +1,8 @@
 <li class="<%=  self_or_other(message) %>">
   <div class="chatboxmessagecontent">
     <p><%= message.body %></p>
-    <time datetime="<%= message.created_at %>" title="<%= day_in_words_or_date(message.created_at) %>">
-      <%= message_interlocutor(message).username unless message_interlocutor(message) == current_user %> <%= day_in_words_or_date(message.created_at) %>
+    <time datetime="<%= day_in_words_or_date(message.created_at) %>" title="<%= day_in_words_or_date(message.created_at) %>">
+      <% message_interlocutor(message).username unless message_interlocutor(message) == current_user %> <%= day_in_words_or_date(message.created_at) %>
     </time>
   </div>
 </li>
