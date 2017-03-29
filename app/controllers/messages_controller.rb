@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @path = conversation_path(@conversation)
 
     @notification_recipient_id = current_user.id == @message.conversation.sender_id ? @message.conversation.recipient_id : @message.conversation.sender_id
-    Notification.set_conversation_notification(@notification_recipient_id, current_user.id, @conversation.id)
+    Notification.where(user: @notification_recipient, sender_id: current_user.id, conversation: @conversation).first_or_create.update_attributes(read: false)
 
     if @message.save
       Pusher.url = "https://1b870432c3653d665c75:e032c81d286eba5a448d@api.pusherapp.com/apps/181805"

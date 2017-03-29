@@ -25,7 +25,8 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     if current_user.id  == @conversation.sender_id || current_user.id == @conversation.recipient_id || @conversation.recipient_id == nil ||  @conversation.sender_id == nil
       @reciever = interlocutor(@conversation)
-      @messages = @conversation.messages
+      @messages = @conversation.messages.reverse
+      current_user.clear_conversation_notifications(@conversation.id)
       @message = Message.new
     else
       redirect_to root_path , notice: 'Unauthorized ! '
