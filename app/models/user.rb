@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   def clear_conversation_notifications(conversation_id)
-    Notification.where(user: current_user, conversation_id: conversation_id).each do |n|
+    Notification.where(user: self, conversation_id: conversation_id).each do |n|
       n.update_attributes(read: true)
     end
   end
