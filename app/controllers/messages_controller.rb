@@ -15,8 +15,12 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     @path = conversation_path(@conversation)
 
-    Notification.find_or_initialize_by(user_id: message_recipient(@message).id, sender_id: current_user.id, conversation: @conversation).
-      update_attributes!(read: false)
+    notification = Notification.find_or_initialize_by(
+       user_id: message_recipient(@message).id,
+       sender_id: current_user.id,
+       conversation: @conversation
+      )
+    notification.update_attributes!(read: false)
 
     if @message.save
       Pusher.url = "https://1b870432c3653d665c75:e032c81d286eba5a448d@api.pusherapp.com/apps/181805"
@@ -31,6 +35,16 @@ class MessagesController < ApplicationController
        {
          socket_id: params[:socket_id]
        })
+
+
+      Pusher.trigger('private-notification'+message_recipient(@message).id.to_s, 'my_notification', {
+          message: @message.body,
+          sender_id: @message.user.id
+       },
+       {
+         socket_id: params[:socket_id]
+       })
+
       respond_to :js
     else
       format.html { redirect_to @conversation, notice: 'Failed ! Retry ' }

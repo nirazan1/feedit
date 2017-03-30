@@ -97,16 +97,29 @@
         $('#socket_id').val(socket_id);
     });
 
-    var channel = pusher.subscribe("private-<%= @conversation.id.to_s %>");
-    channel.bind('my_event', function(data) {
-        var textbox = $(".notification_bob_<%= current_user.id %>");
+    var channel = pusher.subscribe("private-notification<%= current_user.id.to_s %>");
+    channel.bind('my_notification', function(data) {
+        var notificationBox = $(".notification_bob_<%= current_user.id %>");
         var sender_id = data.sender_id
+        var sender = data.sender
         var reciever_id = $('meta[name=user-id]').attr("content");
 
 
         if (sender_id != reciever_id) {
-            chatBox.notify();
-            console.log("new text message")
+          console.log("new text message");
+          $('.notification_bob_1').text('+1');
+
+          // PNotify.desktop.permission();
+          // (new PNotify({
+          //     title: 'FeedIt Notice',
+          //     text: 'New text message',
+          //     desktop: {
+          //         desktop: true
+          //     }
+          // })).get().click(function(e) {
+          //     if ($('.ui-pnotify-closer, .ui-pnotify-sticker, .ui-pnotify-closer *, .ui-pnotify-sticker *').is(e.target)) return;
+          // });
+
         }
     });
   <% end %>
