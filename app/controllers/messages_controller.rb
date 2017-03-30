@@ -15,8 +15,8 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     @path = conversation_path(@conversation)
 
-    @notification_recipient_id = current_user.id == @message.conversation.sender_id ? @message.conversation.recipient_id : @message.conversation.sender_id
-    Notification.where(user: @notification_recipient, sender_id: current_user.id, conversation: @conversation).first_or_create.update_attributes(read: false)
+    Notification.find_or_initialize_by(user_id: message_recipient(@message).id, sender_id: current_user.id, conversation: @conversation).
+      update_attributes!(read: false)
 
     if @message.save
       Pusher.url = "https://1b870432c3653d665c75:e032c81d286eba5a448d@api.pusherapp.com/apps/181805"
@@ -44,6 +44,10 @@ class MessagesController < ApplicationController
 
   def message_interlocutor(message)
     message.user == message.conversation.sender ? message.conversation.sender : message.conversation.recipient
+  end
+
+  def message_recipient(message)
+    message.user == message.conversation.sender ? message.conversation.recipient : message.conversation.sender
   end
 
   def day_in_word_or_date(datetime)
