@@ -32,7 +32,7 @@
                 <% end %>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge"><%= Notification.get_count(current_user.id)%></span> New Notifications <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge notification_bob_<%= current_user.id %>"><%= Notification.get_count(current_user.id)%></span> New Notifications <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <% if current_user.notifications %>
                         <% current_user.notifications.reverse[0...5].each do |n| %>
@@ -53,7 +53,7 @@
 	    </div>
 	  </div>
 	</nav>
-	
+
 
 
 
@@ -74,14 +74,40 @@
             <%= alert %>
           </div>
 		<% end %>
-	
+
 		<%= yield %>
-		
+
 	</div>
-	<div class="container">	
+	<div class="container">
 		<%= render 'layouts/footer' %>
 		<%= debug(params) if Rails.env.development? %>
 	</div>
 
 </body>
 </html>
+
+<script>
+  <% if current_user %>
+    var pusher = new Pusher('<%= Pusher.key %>', {
+        encrypted: true
+    });
+
+    pusher.connection.bind('connected', function () {
+        var socket_id = pusher.connection.socket_id;
+        $('#socket_id').val(socket_id);
+    });
+
+    var channel = pusher.subscribe("private-<%= @conversation.id.to_s %>");
+    channel.bind('my_event', function(data) {
+        var textbox = $(".notification_bob_<%= current_user.id %>");
+        var sender_id = data.sender_id
+        var reciever_id = $('meta[name=user-id]').attr("content");
+
+
+        if (sender_id != reciever_id) {
+            chatBox.notify();
+            console.log("new text message")
+        }
+    });
+  <% end %>
+</script>
