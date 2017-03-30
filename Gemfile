@@ -10,14 +10,14 @@ gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 gem 'fog'
-group :development do 
-	gem 'sqlite3'	
+group :development do
+	gem 'sqlite3'
   gem "better_errors"
 
 end
-group :production do 
+group :production do
 	gem 'pg'
-	gem 'rails_12factor'	
+	gem 'rails_12factor'
 end
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -57,3 +57,5 @@ gem 'byebug'
 gem 'activemerchant'
 gem 'paypal-sdk-rest'
 gem 'pusher'
+gem 'browser-timezone-rails'
+gem 'pnotify-rails'
