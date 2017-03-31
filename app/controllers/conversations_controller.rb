@@ -2,17 +2,17 @@ class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-      @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
+    conversation = if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+      Conversation.between(params[:sender_id],params[:recipient_id]).first
     else
-      @conversation = Conversation.create!(conversation_params)
+      Conversation.create!(conversation_params)
     end
     # @conversation.save!
     # redirect_to @conversation
     # render json: { conversation_id: @conversation.id }
     respond_to do |format|
-      if @conversation.save
-        format.html { redirect_to @conversation, notice: 'Conversation Started.' }
+      if conversation
+        format.html { redirect_to conversation, notice: 'Conversation Started.' }
         format.js
       else
         format.html { render action: "show" }
@@ -23,7 +23,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    if current_user.id  == @conversation.sender_id || current_user.id == @conversation.recipient_id || @conversation.recipient_id == nil ||  @conversation.sender_id == nil
+    if (current_user.id  == @conversation.sender_id || @conversation.recipient_id )
       @reciever = interlocutor(@conversation)
       @messages = @conversation.messages
       current_user.clear_conversation_notifications(@conversation.id)
