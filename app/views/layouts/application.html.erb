@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%=current_user && Notification.get_count(current_user.id) > 0 ? "#{Notification.get_count(current_user.id)} New Notification !"  : "Feed It ! " %></title>
+  <title>Feed It !</title>
   <%= stylesheet_link_tag    'application', :media => 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
@@ -32,7 +32,7 @@
                 <% end %>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge notification_bob_<%= current_user.id %>"><%= Notification.get_count(current_user.id)%></span> New Notifications <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge_bob_<%= current_user.id %>"><%= current_user.new_notification %></span> <span class= "notification_bob">Notifications <span class="caret caret_bob_<%=current_user.id%>"></span></a>
                   <ul class="dropdown-menu">
                     <% if current_user.notifications %>
                         <% current_user.notifications.reverse[0...5].each do |n| %>
@@ -87,7 +87,8 @@
 </html>
 
 <script>
-  <% if current_user %>
+  <% if current_user && request.path_info.exclude?('conversations') %>
+    PNotify.desktop.permission();
     var pusher = new Pusher('<%= Pusher.key %>', {
         encrypted: true
     });
@@ -99,26 +100,45 @@
 
     var channel = pusher.subscribe("private-notification<%= current_user.id.to_s %>");
     channel.bind('my_notification', function(data) {
-        var notificationBox = $(".notification_bob_<%= current_user.id %>");
         var sender_id = data.sender_id
         var sender = data.sender
         var reciever_id = $('meta[name=user-id]').attr("content");
+        var conversation_url = "conversations/" + data.conversation_id
+        var message = data.message
 
 
         if (sender_id != reciever_id) {
-          console.log("new text message");
-          $('.notification_bob_1').text('+1');
 
-          // PNotify.desktop.permission();
-          // (new PNotify({
-          //     title: 'FeedIt Notice',
-          //     text: 'New text message',
-          //     desktop: {
-          //         desktop: true
-          //     }
-          // })).get().click(function(e) {
-          //     if ($('.ui-pnotify-closer, .ui-pnotify-sticker, .ui-pnotify-closer *, .ui-pnotify-sticker *').is(e.target)) return;
-          // });
+          (new PNotify({
+              title: 'New Message',
+              text: sender + ' said\: ' + message
+          })).get().click(function(e) {
+              if ($('.ui-pnotify-closer, .ui-pnotify-sticker, .ui-pnotify-closer *, .ui-pnotify-sticker *').is(e.target)) return;
+              window.location.href = conversation_url;
+          });
+
+          var isOldTitle = true;
+          var oldTitle = "Feed It ! ";
+          var newTitle = sender + " says "  + message;
+          var interval = null;
+          function changeTitle() {
+              document.title = isOldTitle ? oldTitle : newTitle;
+              isOldTitle = !isOldTitle;
+          }
+          interval = setInterval(changeTitle, 700);
+
+          $(window).focus(function () {
+              clearInterval(interval);
+              $("title").text(oldTitle);
+          });
+
+          var badge = $('.badge_bob_<%=current_user.id%>');
+          badge.text('+1');
+          var caret = $('.caret_bob_<%=current_user.id%>');
+          setInterval(function() {caret.toggle()}, 500);
+          var list = $('.dropdown > ul > li > a')
+          list.text('New message from ' + sender )
+          list.first().attr("href", <%= request.host %>+conversation_url)
 
         }
     });
