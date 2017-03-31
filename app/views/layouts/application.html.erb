@@ -31,7 +31,7 @@
                     <li><%= link_to "Manage Blog", rails_admin.dashboard_path %></li>
                 <% end %>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></li>
-                <li class="dropdown">
+                <li class="dropdown dropdown_<%=current_user.id%>">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge_bob_<%= current_user.id %>"><%= current_user.new_notification %></span> <span class= "notification_bob">Notifications <span class="caret caret_bob_<%=current_user.id%>"></span></a>
                   <ul class="dropdown-menu">
                     <% if current_user.notifications %>
@@ -111,7 +111,10 @@
 
           (new PNotify({
               title: 'New Message',
-              text: sender + ' said\: ' + message
+              text: sender + ' said\: ' + message,
+              desktop: {
+                desktop: true
+              }
           })).get().click(function(e) {
               if ($('.ui-pnotify-closer, .ui-pnotify-sticker, .ui-pnotify-closer *, .ui-pnotify-sticker *').is(e.target)) return;
               window.location.href = conversation_url;
@@ -136,9 +139,8 @@
           badge.text('+1');
           var caret = $('.caret_bob_<%=current_user.id%>');
           setInterval(function() {caret.toggle()}, 500);
-          var list = $('.dropdown > ul > li > a')
-          list.text('New message from ' + sender )
-          list.first().attr("href", <%= request.host %>+conversation_url)
+          $('.dropdown_<%=current_user.id%> > ul > li > a').first().text('New message from ' + sender )
+          $('.dropdown_<%=current_user.id%> > ul > li > a').first().attr("href", <%= request.host %>+conversation_url)
 
         }
     });
