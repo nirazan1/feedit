@@ -11,19 +11,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="/"><i class="fa fa-bolt fa-lg">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><i class="fa fa-bolt fa-lg">
             Feed It</i> </a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav navbar-right">
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
                 <li><%# image_tag(current_user.avatar.url, :class=> "img-circle", :size => "50") %></li>
                 <li><%= link_to current_user.first_name+" "+current_user.last_name, edit_user_registration_path, :title => "Edit Profile" %></li>
@@ -32,11 +32,11 @@
                 <% end %>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></li>
                 <li class="dropdown dropdown_<%=current_user.id%>">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge_bob_<%= current_user.id %>"><%= current_user.new_notification %></span> <span class= "notification_bob">Notifications <span class="caret caret_bob_<%=current_user.id%>"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge_bob_<%= current_user.id %>"><%= current_user.new_notification %></span> <span class= "notification_bob_<%=current_user.id%>">Notifications <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <% if current_user.notifications %>
                         <% current_user.notifications.reverse[0...5].each do |n| %>
-                            <li><%= link_to "#{n.sender.username} sent you a new message" , n.conversation %></li>
+                            <li class=<%= n.read == true ? '' : "alert-success"%>><%= link_to "#{n.sender.username} sent you a new message" , n.conversation%></li>
                         <% end %>
                     <% end %>
                     <li role="separator" class="divider"></li>
@@ -50,38 +50,38 @@
             <% end %>
             <li><%= link_to "Donate !", donate_index_path %></li>
           </ul>
-	    </div>
-	  </div>
-	</nav>
+      </div>
+    </div>
+  </nav>
 
 
 
 
-	<div class="container">
+  <div class="container">
       <br>
       <br>
       <br>
       <br>
-		<% if notice %>
+    <% if notice %>
           <div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <%= notice %>
           </div>
-		<% end %>
-		<% if alert %>
+    <% end %>
+    <% if alert %>
           <div class="alert alert-warning alert-dismissible alert-bottom" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <%= alert %>
           </div>
-		<% end %>
+    <% end %>
 
-		<%= yield %>
+    <%= yield %>
 
-	</div>
-	<div class="container">
-		<%= render 'layouts/footer' %>
-		<%= debug(params) if Rails.env.development? %>
-	</div>
+  </div>
+  <div class="container">
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+  </div>
 
 </body>
 </html>
@@ -136,12 +136,10 @@
           });
 
           var badge = $('.badge_bob_<%=current_user.id%>');
-          badge.text('+1');
-          var caret = $('.caret_bob_<%=current_user.id%>');
-          setInterval(function() {caret.toggle()}, 500);
-          $('.dropdown_<%=current_user.id%> > ul > li > a').first().text('New message from ' + sender )
-          $('.dropdown_<%=current_user.id%> > ul > li > a').first().attr("href", <%= request.host %>+conversation_url)
-
+          badge.text('+1 New');
+          $('.dropdown_<%=current_user.id%> > ul').prepend("<li><a href=/"+conversation_url+">New message from " + sender + "</a></li>");
+          var new_notice = $('.dropdown_<%=current_user.id%> > ul > li').first();
+          new_notice.find('a').toggleClass("alert alert-warning");
         }
     });
   <% end %>

@@ -15,7 +15,8 @@ class Message < ActiveRecord::Base
         sender_id: user.id,
         sender: user.username,
         conversation_id: conversation.id,
-        mcdt: day_in_word_or_date(created_at)
+        mcdt: day_in_word_or_date(created_at),
+        avatar: message_interlocutor.avatar.url(:thumbnail)
      },
      {
        socket_id: params[:socket_id]

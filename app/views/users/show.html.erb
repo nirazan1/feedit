@@ -6,7 +6,7 @@
   </div>
   <br>
   <div class="alert boxbackgroundcolor" role="alert">
-    <%= image_tag(@user.avatar, :class=> "img-circle", size: "200") %>
+    <%= image_tag(@user.avatar.url, :class=> "img-thumbnail", size: "200") if @user.avatar.url %>
       <% if @user.admin == true %>
           <h6>Admin</h6>
       <% else %>

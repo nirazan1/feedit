@@ -11,10 +11,6 @@
     <i class="fa fa-comments"></i>
 
     <%= @reciever.username %>
-    <div class="avatar">
-      <%= image_tag(@reciever.avatar.url, :class=> "img-circle", :size => "50") if @reciever.avatar.url %>
-    </div>
-
   </div>
 </div>
 <div class="chatbox_<%= @conversation.id %>">
@@ -23,6 +19,7 @@
         <%= render @messages %>
     <% end %>
   </div>
+
 </div>
 <div class="chatboxinput">
   <%= form_for([@conversation, @message], remote: true) do |f| %>
@@ -56,6 +53,7 @@
         if (sender_id != reciever_id) {
             chatbox.append(
                     '<li class="other">' +
+                    '<span><img class="img-thumbnail" src='+avatar+'></span>' +
                     '<div class="chatboxmessagecontent">' +
                     '<p>' + data.message + '</p>' +
                     '<time>' + data.dt +

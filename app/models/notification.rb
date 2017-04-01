@@ -14,10 +14,6 @@ class Notification < ActiveRecord::Base
     new_notification.save
   end
 
-  def self.get_count(user_id)
-    User.find(user_id).notifications.where(read: false).count
-  end
-
   def sender
     User.find(self.sender_id)
   end

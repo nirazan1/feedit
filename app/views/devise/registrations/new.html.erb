@@ -44,10 +44,11 @@
       <p>
       <%= f.label :avatar do %>
         <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
       <% end %>
     </p>
     </div>
-  
+
     <div class="actions">
       <%= f.submit "Sign up", class: "btn btn-primary btn-sm" %>
     </div>
