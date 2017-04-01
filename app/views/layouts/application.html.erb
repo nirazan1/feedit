@@ -87,7 +87,7 @@
 </html>
 
 <script>
-  <% if current_user && request.path_info.exclude?('conversations') %>
+  <% if current_user %>
     console.log("from application");
     PNotify.desktop.permission();
     var pusher = new Pusher('<%= Pusher.key %>', {
@@ -108,8 +108,7 @@
         var conversation_url = "conversations/" + data.conversation_id
         var message = data.message
 
-
-        if (sender_id != reciever_id) {
+        if ( (sender_id != reciever_id) && window.location.pathname !=  '/'+conversation_url ) {
 
           (new PNotify({
               title: 'New Message',
