@@ -88,6 +88,7 @@
 
 <script>
   <% if current_user && request.path_info.exclude?('conversations') %>
+    console.log("from application");
     PNotify.desktop.permission();
     var pusher = new Pusher('<%= Pusher.key %>', {
         encrypted: true
@@ -100,6 +101,7 @@
 
     var channel = pusher.subscribe("private-notification<%= current_user.id.to_s %>");
     channel.bind('my_notification', function(data) {
+        console.log("from application subscriber");
         var sender_id = data.sender_id
         var sender = data.sender
         var reciever_id = $('meta[name=user-id]').attr("content");

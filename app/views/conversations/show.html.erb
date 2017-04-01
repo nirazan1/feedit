@@ -32,6 +32,7 @@
 <script>
     var chatbox = $(".chatbox_<%= @conversation.id %>").children();
     chatbox.scrollTop(chatbox[0].scrollHeight);
+    console.log("from conversation show");
 
     var pusher = new Pusher('<%= Pusher.key %>', {
         encrypted: true
@@ -44,6 +45,7 @@
 
     var channel = pusher.subscribe("<%= @conversation.id.to_s %>");
     channel.bind('my_event', function(data) {
+        console.log("from conversation show subscriber");
         var chatbox = $(".chatbox_<%= @conversation.id %>").children();
         var sender_id = data.sender_id
         var reciever_id = $('meta[name=user-id]').attr("content");
