@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.4.1'
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.8'
 gem 'devise'
 
 gem 'cancan'
@@ -7,17 +10,14 @@ gem 'carrierwave'
 gem 'acts_as_votable'
 gem 'rails_admin'
 gem "font-awesome-rails"
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
 gem 'fog'
 group :development do
-	gem 'sqlite3'
+	gem 'sqlite3', '~> 1.3.6'
   gem "better_errors"
-
 end
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg', '~> 0.15'
+  gem 'rails_12factor'
 end
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
