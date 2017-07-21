@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_time_zone_dynamic
 
   def set_time_zone_dynamic
-    Time.zone = current_user.time_zone if current_user&.time_zone.present?
+    Time.zone = current_user.time_zone if current_user && current_user.time_zone.present?
   end
 
   private

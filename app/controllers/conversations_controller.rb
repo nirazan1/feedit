@@ -25,7 +25,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     if (current_user.id  == @conversation.sender_id || @conversation.recipient_id )
       @reciever = interlocutor(@conversation)
-      @messages = @conversation.messages
+      @messages = @conversation.messages.order('created_at DESC')
       current_user.clear_conversation_notifications(@conversation.id)
       @message = Message.new
     else
