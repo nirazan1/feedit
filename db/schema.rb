@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226050405) do
+ActiveRecord::Schema.define(version: 20160226040951) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -20,20 +19,18 @@ ActiveRecord::Schema.define(version: 20160226050405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.index ["feed_id"], name: "index_comments_on_feed_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
-  add_index "comments", ["feed_id"], name: "index_comments_on_feed_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
-
-  add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id"
-  add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id"
 
   create_table "feeds", force: :cascade do |t|
     t.string   "name"
@@ -41,9 +38,8 @@ ActiveRecord::Schema.define(version: 20160226050405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.index ["user_id"], name: "index_feeds_on_user_id"
   end
-
-  add_index "feeds", ["user_id"], name: "index_feeds_on_user_id"
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
@@ -51,10 +47,9 @@ ActiveRecord::Schema.define(version: 20160226050405) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "notifications", force: :cascade do |t|
     t.boolean  "read",            default: false
@@ -64,14 +59,11 @@ ActiveRecord::Schema.define(version: 20160226050405) do
     t.integer  "conversation_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.integer  "sender_id"
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["conversation_id"], name: "index_notifications_on_conversation_id"
+    t.index ["feed_id"], name: "index_notifications_on_feed_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
-
-  add_index "notifications", ["comment_id"], name: "index_notifications_on_comment_id"
-  add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
-  add_index "notifications", ["feed_id"], name: "index_notifications_on_feed_id"
-  add_index "notifications", ["sender_id"], name: "index_notifications_on_sender_id"
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -102,25 +94,23 @@ ActiveRecord::Schema.define(version: 20160226050405) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
   create_table "votes", force: :cascade do |t|
-    t.integer  "votable_id"
     t.string   "votable_type"
-    t.integer  "voter_id"
+    t.integer  "votable_id"
     t.string   "voter_type"
+    t.integer  "voter_id"
     t.boolean  "vote_flag"
     t.string   "vote_scope"
     t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
-
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end
